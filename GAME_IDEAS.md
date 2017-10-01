@@ -1,3 +1,15 @@
+# Jessie
+
+## Game idea 
+
+* Game description: Our version of plants vs. zombies, defend our house by strategically growing different types of plants. Survival mode: if any zombie reaches our house, the player loses. Increasing difficulties in increasing levels. More plants will be unlocked throughout the game.
+* Game engine: Unity
+* User input: mouse/keyboard
+* Key features: sunflower, two types of plants and two types of zombies.
+* Add-on features: more types of plants and zombies.
+* List of Objects: sunflower/resource provider, shooting plants(basic, double, fire, ice), nuts, bombs, 3 types of zombies(weak, medium, strong).
+* Comments: we can think of our own plants later, to make the game more fun. 
+
 # Aman
 
 ## Car Park
