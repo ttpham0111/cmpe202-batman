@@ -35,3 +35,37 @@ No dedicated page found for discussions on issues. Website has comments section 
 **Overall**
 
 Same as PandaJS. Not much found on YouTube.
+
+
+# Ankit
+
+## pixi.js
+
+**********Ease of Use**********
+* pixi.js is a lightweight 2D library that works across all devices. It is very fast as compared to other libraries.
+* It uses WebGL renderer on browsers that support it. If the browser doesn’t support it, it will automatically fall back to canvas renderer.
+* Doesn’t need prior knowledge of WebGL to use this library.
+* Doesn’t have to worry about cross platform compatibility and low level code as it is handled by the library itself and it provides its own simple and powerful APIs for us.
+
+**********Documentation**********
+* It provides a detailed API documentation for us.
+* It also provides plenty of examples for our references.
+
+**********Community**********
+* It has a very active repository on GitHub with around 15k stars.
+* It also provides a forum to discuss solutions.
+* It also provides Slack channel for discussion.
+
+## melonJS
+
+**********Ease of Use**********
+* It is a lightweight 2D sprite-based engine which natively integrates Tiled Map Editor.
+* It is a WebGL renderer only, so won’t work on browsers which do not support WebGL.
+
+**********Documentation**********
+* It provides a well structured documentation.
+* There are 2 sample tutorials available on the site to understand the basics, apart from that there aren’t that many examples where we can look for reference.
+
+**********Community**********
+* It does not have much popular and active GitHub repository when compared to other libraries available for game development.
+* Although, it provides a forum for discussions.

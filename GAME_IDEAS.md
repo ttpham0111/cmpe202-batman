@@ -9,3 +9,16 @@
 * Add-on features: N/A
 * List of Objects: Car, road, incoming traffic, other parked cars etc.
 * Comments: N/A
+
+
+# Ankit
+
+## BatHunt
+
+* The another version of the classic DuckHunt game with bats instead of ducks. Set in night mode in the park, bats come around from any direction on the screen. These bats will come in a wave, a wave will have a group of bats coming from any direction. There will be multiple levels starting from the easiest. Each level will consist of 6 waves. To win each level, the user will have to kill more bats than they let go. The number of bats in each wave and their speed keep on increasing as level increases. Killing a bat will earn user 100 points. Killing all the bats in a wave will earn user 500 point bonus.
+* Game Engine - Phaser/Pixi
+* User input - mouse
+* Key features - Here we can focus on graphics more. Spotting bats in the night scene can be a bit challenging for users.
+* Add-on features - Nothing as of now. We can think of more we decide to go ahead with this.
+* List of objects - Bats, stone shooter stick, stones
+* Comments - None
