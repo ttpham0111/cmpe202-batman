@@ -7,7 +7,7 @@
 - [Tuan Pham](https://github.com/ttpham0111)
 
 ### Weekly Meeting Minutes:
-[Meeting Link](https://github.com/nguyensjsu/cmpe202-batman/wiki/Minutes-of-Meeting)
+[Meeting Link](MINUTES_OF_MEETING.md)
 
 ### Cumulative Flow Diagram:
 [CFD Link](https://docs.google.com/a/sjsu.edu/spreadsheets/d/1yeUd_XgQ2K1DcWozzRqyIWE--iZSVyfMr1UxYcWPbS8/edit?usp=sharing)
@@ -21,9 +21,9 @@
 - **Tuan**: User Story
 
 ### Personal Project Values Log:
-- **Aman**: Respect
-- **Ankit**: Simplicity
-- **Jessie**: Feedback
-- **Tuan**: See the Whole
-- **Palash**: Communication
+- **Aman**: [Respect](RESPECT.md)
+- **Ankit**: [Simplicity](SIMPLICITY.md)
+- **Jessie**: [Feedback](FEEDBACK.md)
+- **Tuan**: [See the Whole](SEE_THE_WHOLE.md)
+- **Palash**: [Communication](COMMUNICATION.md)
 
