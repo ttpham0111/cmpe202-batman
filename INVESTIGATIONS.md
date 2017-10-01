@@ -104,3 +104,30 @@ Same as PandaJS. Not much found on YouTube.
 ***********Community*********** 
 * For Games – HTML5 Game Devs is extremely active 
 * But for Easel JS, I was not able to find a good community focusing on the same, HTML5 Game Dev’s doesn’t specifically focus on Easel
+
+
+# Jessie
+
+## Unity
+**Ease of Use**
+
+You will need to get familiar with Unity and C#. C# is easy to pick up especially if you already know Java. It may take some time to begin with, but once you get used to Unity and C#, it will be easy to find what you want and how to do it.
+Unity also has an asset store, there are many free assets or very low cost assets we can use. This will save us a lot of time in making figures, objects and scenes. 
+
+https://www.assetstore.unity3d.com/en/#!/search/page=1/sortby=relevance/query=2d&price:0-5
+
+**Documentation**
+
+Well written, very detailed
+https://docs.unity3d.com/Manual/index.html
+
+
+**Community**
+
+Lots of questions and answers can be found on
+https://unity3d.com/community
+
+**Overall**
+
+Plenty of tutorials can be found on YouTube, search "unity tutorial 2d" will return 500k+ videos.
+Unity is made specifically for creating games. Therefore we can do almost anything we want in the game. 
