@@ -131,3 +131,23 @@ https://unity3d.com/community
 
 Plenty of tutorials can be found on YouTube, search "unity tutorial 2d" will return 500k+ videos.
 Unity is made specifically for creating games. Therefore we can do almost anything we want in the game. 
+
+## LycheeJS
+**No longer active**
+
+## ThreeJS
+**Overall**
+
+It seems like this library is mostly for 3D graphics and animations. There are a ton of plugins that make game creation easier, but not super easy to pick up. Development is still active and code is super light weight. Probably not the easiest first step into web game development.
+
+**Ease of Use**
+
+For setting up visuals and scenes it seems very simple. Lots of plugins to choose from to easily create something simple right away. For creating something more complex it might require more than just a skim of the documentations. There are lots of examples for fun simple games with very little code.
+
+**Documentation**
+
+The documentation is great for creating graphics and animations. Lots of online guides on how to use it and create games, it seems a bit more involved though. Overall, great.
+
+**Community**
+
+Again, lots and lots of plugins. three.js seems widely used and there is a very large community. Many great examples and use cases online as well.
