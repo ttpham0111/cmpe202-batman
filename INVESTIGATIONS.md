@@ -69,3 +69,38 @@ Same as PandaJS. Not much found on YouTube.
 **********Community**********
 * It does not have much popular and active GitHub repository when compared to other libraries available for game development.
 * Although, it provides a forum for discussions.
+
+
+# Palash
+
+## Phaser
+
+**********Ease of Use**********
+* 2-D gaming engine 
+* Language – Javascript 
+* Free and open source 
+* Game Engines - Input support, Graphics, Sound
+* Coding is pretty much average and not that tough, simple 2-d games can be created with available resources
+
+**********Documentation**********
+* Document is good, but will not rate very high, we will have to search for other sources as well to get the job done. Rate - 3/5
+
+**********Community**********
+* Twitter
+* Slack
+* Discord
+
+## Easel JS ( Create JS )
+
+**********Ease of Use********** 
+* Seemed comparatively easy to Phaser engine. 
+* Language is JS along with some events as we had in Java Applets 
+* Similar to what we can develop with Phaser but with some less code.
+
+***********Documentation*********** 
+* Good documentation – 3.5/5 
+* Couple of Youtube videos
+
+***********Community*********** 
+* For Games – HTML5 Game Devs is extremely active 
+* But for Easel JS, I was not able to find a good community focusing on the same, HTML5 Game Dev’s doesn’t specifically focus on Easel

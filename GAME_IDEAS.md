@@ -22,3 +22,14 @@
 * Add-on features - Nothing as of now. We can think of more we decide to go ahead with this.
 * List of objects - Bats, stone shooter stick, stones
 * Comments - None
+
+
+
+# Palash
+
+## Game - Rescuer Rambo
+*  The building has caught fire and some people are still stuck in the building, Here's where our hero Rambo comes for their survival, now lets see if Rambo can successfully save them and finish the game or he himself becomes victim of the fire and games over.
+*  Technology - Phaser
+*  Keyboard
+*  Multiple levels/difficulty can be added and some supernatural powers can also be given to Rambo to succeed.
+*  Enemies would be off-course fire, water leakage at some place, broken areas, construction damage.
