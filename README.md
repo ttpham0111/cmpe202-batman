@@ -3,7 +3,7 @@
 - [Aman Ojha](https://github.com/amanvojha)
 - Ankit Bharadiya
 - [Bijie (Jessie) Qiu](https://github.com/jessieqiu)
-- Palash Hedau
+- [Palash Hedau] (https://github.com/palashhedau)
 - [Tuan Pham](https://github.com/ttpham0111)
 
 ### Weekly Meeting Minutes:
@@ -26,4 +26,3 @@
 - **Jessie**: [Feedback](FEEDBACK.md)
 - **Tuan**: [See the Whole](SEE_THE_WHOLE.md)
 - **Palash**: [Communication](COMMUNICATION.md)
-
