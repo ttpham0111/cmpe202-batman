@@ -17,6 +17,7 @@
 * Game idea and complexity.
 
 
+
 ## Week 2 - Sep 23 - Sep 30
 * Discussion about each team member's game idea.
 * Collective decision on the game idea we want to develop.
