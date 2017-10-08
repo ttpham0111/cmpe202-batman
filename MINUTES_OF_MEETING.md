@@ -1,4 +1,5 @@
 ## Week 1 - Sep 16 - Sep 22
+**What did the team do the past week?**
 * Discussion about Kanban Cards.
 * Creation of Kanban cards.
 * Researching about the game and resources needed.
@@ -19,6 +20,7 @@
 
 
 ## Week 2 - Sep 23 - Sep 30
+**What did the team do the past week?**
 * Discussion about each team member's game idea.
 * Collective decision on the game idea we want to develop.
 * Collective decision on the technology we want to use in the game development.
@@ -34,3 +36,25 @@
 
 **What are the current blockers/challenges the team is facing?**
 * Adopting to the PhaserJS which is a new technology to everyone in the team.
+
+
+## Week 3 - Oct 1 - Oct 7
+**What did the team do the past week?**
+* Learn about PhaserJS.
+* Research on UI frame.
+* Learn Javascript.
+* Research game music.
+* Research on game Architecture.
+* Research on game character and physics
+
+**What is the team going to do next week?**
+* Continue learning PhaserJS.
+* Set up first level of the UI for the game.
+* Set up the main character of the game.
+* Make the character move.
+* Find some sound effect for the game.
+* Design more details for the game.
+
+**What are the current blockers/challenges the team is facing?**
+* How to use PhaserJS to achieve what we want in the game.
+* Game design and architecture.
