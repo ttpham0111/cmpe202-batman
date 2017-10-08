@@ -14,4 +14,4 @@
 ### Week #3
 * In the third week, we assigned different modules to each other to do research on.
 * Modules like Character designing, Music implementation, UI development etc. were researched on and discussed.
-* Since we all respect the responsibilities given to us, we are commited to our work and try our best to finish it on time. 
+* Since we all respect the responsibilities given to us, we are commited to our work and try our best to finish it on time.
