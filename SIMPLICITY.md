@@ -7,3 +7,7 @@
 ### Week #2
 * After selecting the game idea, while defining the scope for it, we collectively agreed to keep the scope as simple as it can be at first level. We have kept a final optimistic goal for this game, but we decided to move step by step towards our final goal starting from the simplest instead of directly jumping into the final goal.
 * Instead of directly jumping into the development, we first started defining the architecture, designing the system, researching on the story and characters of the game. This will help us in efficient development process and avoid complexities in future.
+
+### Week #3
+* To follow the simplicity, all the team members decided to first learn phaserJS, then start the implementation.
+* The team members divided the basic tasks among themselves. These tasks include defining the architecture, researching on the characters, designing UI wireframe, etc. These simple and basic tasks are very important in the game development process as it will give us clear view of the game.
