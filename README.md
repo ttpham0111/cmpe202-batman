@@ -3,7 +3,7 @@
 - [Aman Ojha](https://github.com/amanvojha)
 - Ankit Bharadiya
 - [Bijie (Jessie) Qiu](https://github.com/jessieqiu)
-- [Palash Hedau] (https://github.com/palashhedau)
+- [Palash Hedau](https://github.com/palashhedau)
 - [Tuan Pham](https://github.com/ttpham0111)
 
 ### Weekly Meeting Minutes:
