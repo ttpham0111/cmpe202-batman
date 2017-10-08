@@ -9,3 +9,6 @@ Another example of us seeing the whole is our dedication to the Agile process. T
 
 ## Week 2
 This week, we battled with ideas discussed and details about the project. Our discussions focused on what would be included in the game, what languages, frameworks, and tools we would use for the project. More importantly, we focused on how each choice would effect the long term. We elaborated on our ideas and determined the estimated time and effort it would take to implement each idea. Overall, we did a good job at seeing the whole while putting a magnifying glass on the project.
+
+## Week 3
+To really see the whole, the team must understand atleast at a high level, what tooling revolves around creating the project. We dedicated this week to learning PhaserJS as it will be our main tool for developing the game. We've also split up and assigned expertise: Graphics, UI, Music, Architecture, and Concept. This will help us come together and share our knowledge so that we can all have a better idea of how to carry this game from idea to reality.
