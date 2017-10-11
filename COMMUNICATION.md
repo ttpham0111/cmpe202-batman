@@ -14,3 +14,7 @@ Every person in the group is assigned the task which is placed in the Kanban car
 ### Week 3
 * We have collaboratively decide for the game engine as well as the game. The team is learning  the technologies well, while having clear idea about the tech and wireframes
 * We communicate in every way possible, on the skype, chats, and have clear views of the ideas which will be implemented. We discussed every possible game and finally combining two of those, will be our main idea.
+
+
+### Week 4
+* We have understood the area we want to focus onto, we have clearly decided our area of focus. Programming learning is in continuos progression. Later we will start with our tasks
