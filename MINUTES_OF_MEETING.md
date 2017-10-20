@@ -58,3 +58,22 @@
 **What are the current blockers/challenges the team is facing?**
 * How to use PhaserJS to achieve what we want in the game.
 * Game design and architecture.
+
+
+## Week 4 - Oct 15 - Oct 21
+**What did the team do the past week?**
+* Started Implementing the project with a sample game
+* We will be using Tiled for all the UI.
+* Team has successfully completed research on UI, Music, Player movement.
+* Tiles has been developed by the team.
+
+**What is the team going to do next week?**
+* Continue implementing Levels of game in PhaserJS.
+* Complete First level
+* Complete the main character of the game.
+* Adding functionalities to the enemies
+* Go in depth for the levels and design the on-screen keypad for the game
+
+**What are the current blockers/challenges the team is facing?**
+* Integrate the work done by individuals.
+* Creating keypad or code-pad for the game-user
