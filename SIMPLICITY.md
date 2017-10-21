@@ -11,3 +11,7 @@
 ### Week #3
 * To follow the simplicity, all the team members decided to first learn phaserJS, then start the implementation.
 * The team members divided the basic tasks among themselves. These tasks include defining the architecture, researching on the characters, designing UI wireframe, etc. These simple and basic tasks are very important in the game development process as it will give us clear view of the game.
+
+### Week #4
+* We collectively divided implementing different modules of the projects. We tried to keep each modules as simple as it can be. Later, we will combine all the modules. This will help us in the faster development.
+* We started development from the basic simple use cases. This step by step process will help us in implementing less buggy code.
