@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="public/static/images/favicon.ico">
+
+    <title>TODO</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <!-- Bootstrap Vue -->
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@1.0.0-beta.9/dist/bootstrap-vue.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!------------
+    - Components -
+    ------------->
+    <!-- TODO: CSS for components here! Remove after first insert -->
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="public/main.css">
+  </head>
+  <body>
+    <div id="app" class="h-100">
+      <todo-app class="h-100"></todo-app>
+    </div>
+
+    <!-- Vue JS -->
+    <script src="//unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
+
+    <!-- Vue Bootstrap -->
+    <script src="//unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@1.0.0-beta.9/dist/bootstrap-vue.js"></script>
+
+    <!-- Vue Router -->
+    <script src="//unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
+
+    <!------------
+    - Components -
+    ------------->
+    <script src="public/components/app.component.js"></script>
+
+    <!-- Editor -->
+    <script src="public/components/editor/editor.component.js"></script>
+
+    <!-- Game -->
+    <script src="public/components/game-screen/game-screen.component.js"></script>
+
+    <!-- Router -->
+    <script src="public/router.js"></script>
+
+    <script>
+      new Vue({
+        el: '#app',
+        router: router
+      });
+    </script>
+  </body>
+</html>
