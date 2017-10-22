@@ -66,6 +66,7 @@
 * We will be using Tiled for all the UI.
 * Team has successfully completed research on UI, Music, Player movement.
 * Tiles has been developed by the team.
+* A prototype of the game has been finished.
 
 **What is the team going to do next week?**
 * Continue implementing Levels of game in PhaserJS.
@@ -77,3 +78,4 @@
 **What are the current blockers/challenges the team is facing?**
 * Integrate the work done by individuals.
 * Creating keypad or code-pad for the game-user
+* How to set up layers and tiles of the map in PhaserJS
