@@ -12,6 +12,9 @@
 ### Cumulative Flow Diagram:
 [CFD Link](https://docs.google.com/a/sjsu.edu/spreadsheets/d/1yeUd_XgQ2K1DcWozzRqyIWE--iZSVyfMr1UxYcWPbS8/edit?usp=sharing)
 
+### Burndown Chart:
+[Burndown Chart Link](https://docs.google.com/a/sjsu.edu/spreadsheets/d/1TlPaDvLgCWB298bBqbqU9Rbumqsl3GHW7RlznKsTGT0/edit?usp=sharing)
+
 
 ### Project Deliverables:
 - **Aman**: Use Case Specification
