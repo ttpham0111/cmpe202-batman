@@ -12,3 +12,6 @@ This week, we battled with ideas discussed and details about the project. Our di
 
 ## Week 3
 To really see the whole, the team must understand atleast at a high level, what tooling revolves around creating the project. We dedicated this week to learning PhaserJS as it will be our main tool for developing the game. We've also split up and assigned expertise: Graphics, UI, Music, Architecture, and Concept. This will help us come together and share our knowledge so that we can all have a better idea of how to carry this game from idea to reality.
+
+## Week 4
+After all the work to explore the various aspects of creating a web game, we've finally started creating code. We've learned how important it is to get a better sense of the big picture and scope of the project before starting to implement the little details. The results should be more scalable with less code debt.
