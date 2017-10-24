@@ -9,6 +9,7 @@ function preload () {
 
 var player;
 var cursors;
+var isMoving;
 
 function create () {
 
@@ -23,22 +24,38 @@ function create () {
 
     game.physics.arcade.enable(player);
 
-    player.animations.add('step', null, 10, true);
-    player.animations.add('left', null, 10, true);
-    player.animations.add('right', null, 10, true);
+    isMoving = false;
 
-    cursors = game.input.keyboard.createCursorKeys();
+    player.animations.add('player_walk');
+
+    //game.input.onDown.add(moveCharacter, this);
+
+    //cursors = game.input.keyboard.createCursorKeys();
 
 }
 
+function moveCharacter(pointer){
+    console.log("moving...");
+    isMoving = true;
+    var duration = (game.physics.arcade.distanceToPointer(player, pointer) / 300) * 1000;
+    tween = game.add.tween(player).to({ x: pointer.x, y: pointer.y }, duration, Phaser.Easing.Linear.None, true);
+    tween.onComplete.add(moveCharacterComplete, this);
+}
+
+function moveCharacterComplete(){
+    isMoving = false;
+    player.animations.stop();
+}
+
 function update () {
-
-    if (cursors.left.isDown){
-        player.animations.play('left');
-    } else if (cursors.right.isDown) {
-        player.animations.play('right');
-    } else if (cursors.up.isDown) {
-        player.animations.play('step');
+    if (isMoving) {
+        // play sprite at 12 frames per second
+        player.animations.play('player_walk', 12, true);
+    } else {
+        player.animations.stop();
     }
-
+    if (game.input.activePointer.isDown)
+    {
+        moveCharacter(game.input.activePointer);
+    }
 }
