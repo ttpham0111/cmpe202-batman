@@ -9,29 +9,78 @@ var layer ;
 var player ;
 var controls  = {} ;
 var playerSpeed = 150 ; 
-var jumpTimer  = 0 ; 
-var drag  ; 
+ 
+var enemy  ; 
+var bullets ; 
+var bulletTime = 0 ; 
+var fireButton ; 
 
 Game.Level1.prototype = {
+	preload : function(){
+		//Load Enemy
+		this.load.image('enemy','../assets/enemy.jpg')
+		this.load.image('bullet','../assets/Bullet.jpg')
+	},
+
+
 	create : function(){
 		
 
 
+		
+
+		// The enemy's bullets
+	    bullets = this.add.group();
+	    bullets.enableBody = true;
+	    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+	    bullets.createMultiple(30, 'bullet');
+	    bullets.setAll('anchor.x', 0.5);
+	    bullets.setAll('anchor.y', 1);
+	    bullets.setAll('outOfBoundsKill', true);
+	    bullets.setAll('checkWorldBounds', true);
+
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//this.physics.arcade.gravity.y = 1400 ; 
 
-		map = this.add.tilemap('map',64 , 64)
+		map = this.add.tilemap('map',32 , 32)
+		
+
 		map.addTilesetImage('tileset');
-		map.addTilesetImage('coinset');
+		
+
 		layer = map.createLayer(0) ;
 		layer.resizeWorld() ; 
 
-		map.setCollisionBetween(0,0); 
-		map.setTileIndexCallback(23 , this.resetPlayer , this );
-		map.setTileIndexCallback(0 , this.getCoin , this )
+		map.setCollisionBetween(1,1); 
+		map.setTileIndexCallback(0 , this.resetPlayer , this );
+		map.setTileIndexCallback(2 , this.getCoin , this );
 		
 
-		player = this.add.sprite(100 , 500 , 'player');
+		player = this.add.sprite(100 , 400 , 'player');
 		player.anchor.setTo(0.5,0.5);
+		enemy  = this.add.sprite(600,850,'enemy') ; 
+		enemy.anchor.setTo(0.5,0.5);		
+
+		
+
+
 
 		player.animations.add('idle' , [0,1] , 1 , true);
 		player.animations.add('jump' , [2] , 1 , true);
@@ -46,12 +95,15 @@ Game.Level1.prototype = {
 			left : this.input.keyboard.addKey(Phaser.Keyboard.A),
 			up : this.input.keyboard.addKey(Phaser.Keyboard.W),
 			down : this.input.keyboard.addKey(Phaser.Keyboard.S),
+			fireButtonI : this.input.keyboard.addKey(Phaser.Keyboard.I),
+			fireButtonJ : this.input.keyboard.addKey(Phaser.Keyboard.J),
+			fireButtonK : this.input.keyboard.addKey(Phaser.Keyboard.K),
+			fireButtonL : this.input.keyboard.addKey(Phaser.Keyboard.L),
 		};
 
-		drag = this.add.sprite(player.x , player.y,'drag');
-		drag.anchor.setTo(0.5 , 0.5);
-		drag.inputEnabled = true ;
-		drag.input.enableDrag(true) ; 
+		
+		
+		
 
 	},
 
@@ -90,16 +142,68 @@ Game.Level1.prototype = {
 			player.animations.play('idle');
 		}
 
+		if(controls.fireButtonI.isDown){
+				if(this.time.now > bulletTime){
+				bullet = bullets.getFirstExists(false);
+
+				if(bullet){
+					bullet.reset(player.x , player.y);
+					bullet.body.velocity.y = -300 ; 
+					bulletTime = this.time.now + 200 ; 
+				}
+			}
+		}
+
+		if(controls.fireButtonJ.isDown){
+			if(this.time.now > bulletTime){
+				bullet = bullets.getFirstExists(false);
+
+				if(bullet){
+					bullet.reset(player.x , player.y);
+					bullet.body.velocity.x = -300 ; 
+					bulletTime = this.time.now + 200 ; 
+				}
+			}
+		}
+
+		if(controls.fireButtonK.isDown){
+			if(this.time.now > bulletTime){
+				bullet = bullets.getFirstExists(false);
+
+				if(bullet){
+					bullet.reset(player.x , player.y);
+					bullet.body.velocity.y = +300 ; 
+					bulletTime = this.time.now + 200 ; 
+				}
+			}
+		}
+
+		if(controls.fireButtonL.isDown){
+			if(this.time.now > bulletTime){
+				bullet = bullets.getFirstExists(false);
+
+				if(bullet){
+					bullet.reset(player.x , player.y);
+					bullet.body.velocity.x = +300 ; 
+					bulletTime = this.time.now + 200 ; 
+				}
+			}
+		}
+
 
 
 	},
 
 	resetPlayer: function(){
-		player.reset(100 , 560 ); 
+		player.reset(100 , 700 ); 
 	},
 
 	getCoin : function(){
 		map.putTile(-1 , layer.getTileX(player.x), layer.getTileY(player.y))
-	}
+	},
+
+	
+	
+
 
 }; 

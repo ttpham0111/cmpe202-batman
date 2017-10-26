@@ -2,7 +2,7 @@ console.log('Palash')
 
 window.onload = function(){
 
-	var game = new Phaser.Game(1280,640 , Phaser.CANVAS , '');
+	var game = new Phaser.Game(960	,900 , Phaser.CANVAS , '');
 
 	game.state.add('Boot' , Game.Boot);
 	game.state.add('Preloader' , Game.Preloader);

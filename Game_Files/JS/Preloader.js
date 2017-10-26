@@ -17,15 +17,20 @@ Game.Preloader.prototype = {
 		//Load All assets
 
 		this.load.tilemap('map', '../assets/GameTile.csv');
-		this.load.image('tileset' , '../assets/spikes.jpg');
-		this.load.image('coinset' , '../assets/coin.jpg')
+		this.load.image('tileset' , '../assets/tileImage.jpg');
 
 
-		this.load.image('drag' , '../assets/apple.jpg')
+		//this.load.image('drag' , '../assets/apple.jpg')
 
 		// Load Player
 		this.load.spritesheet('player' , '../assets/Player.png' , 24 , 26 )
 
+		
+		//Load Enemy
+		this.load.image('enemy','../assets/enemy.jpg')
+		this.load.image('enemyBullet','../assets/Bullet.jpg')
+
+		
 
 	},
 
