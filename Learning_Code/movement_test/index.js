@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload () {
 
@@ -10,6 +10,8 @@ function preload () {
 var player;
 var cursors;
 var isMoving;
+var direction;
+var directions = ['right','down','left','up'];
 
 function create () {
 
@@ -17,29 +19,48 @@ function create () {
 
     game.stage.backgroundColor = "#eee";
 
-    player = game.add.image(game.world.centerX, game.world.centerY, 'player');
+    player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
+
+    game.physics.arcade.enable(player);
 
     player.width = 50;
     player.height = 50;
 
-    game.physics.arcade.enable(player);
-
+    player.anchor.setTo(0.5,0.5);
+    
     isMoving = false;
+    direction = directions[0];
 
     player.animations.add('player_walk');
 
-    //game.input.onDown.add(moveCharacter, this);
-
     //cursors = game.input.keyboard.createCursorKeys();
+
+    game.input.keyboard.onUpCallback = function(e){
+        if(e.keyCode === Phaser.Keyboard.LEFT){
+            direction = directions.indexOf(direction) === 0 ? directions[directions.length-1]:directions[directions.indexOf(direction)-1];
+        } else if(e.keyCode === Phaser.Keyboard.RIGHT){
+            direction = directions.indexOf(direction) === directions.length-1 ? directions[0]:directions[directions.indexOf(direction)+1];
+        }
+    }
 
 }
 
-function moveCharacter(pointer){
-    console.log("moving...");
-    isMoving = true;
-    var duration = (game.physics.arcade.distanceToPointer(player, pointer) / 300) * 1000;
-    tween = game.add.tween(player).to({ x: pointer.x, y: pointer.y }, duration, Phaser.Easing.Linear.None, true);
-    tween.onComplete.add(moveCharacterComplete, this);
+function moveCharacter(steps){
+    if(!isMoving) {
+        var new_pos;
+        if(direction === 'left'){
+            new_pos = { x: player.position.x-(32*steps), y: player.position.y };
+        } else if(direction === 'right'){
+            new_pos = { x: player.position.x+(32*steps), y: player.position.y };
+        } else if(direction === 'up'){
+            new_pos = { x: player.position.x, y: player.position.y-(32*steps) };
+        } else {
+            new_pos = { x: player.position.x, y: player.position.y+(32*steps) };
+        }
+        isMoving = true;
+        tween = game.add.tween(player).to(new_pos, 300, Phaser.Easing.Linear.None, true);
+        tween.onComplete.add(moveCharacterComplete, this);
+    }
 }
 
 function moveCharacterComplete(){
@@ -56,6 +77,12 @@ function update () {
     }
     if (game.input.activePointer.isDown)
     {
-        moveCharacter(game.input.activePointer);
+        moveCharacter(1);
     }
+}
+
+function render() {
+
+    game.debug.spriteInfo(player, 32, 32);
+
 }

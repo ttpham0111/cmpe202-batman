@@ -15,3 +15,7 @@
 ### Week #4
 * We collectively divided implementing different modules of the projects. We tried to keep each modules as simple as it can be. Later, we will combine all the modules. This will help us in the faster development.
 * We started development from the basic simple use cases. This step by step process will help us in implementing less buggy code.
+
+### Week #5
+* We defined broader backlog items and divided them into simple subtasks. This will improve the development speed.
+* Each team member came up with their completed subtasks and we merged those tasks to compelete a broader backlog item by sitting together.
