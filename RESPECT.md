@@ -14,8 +14,12 @@
 ### Week #3
 * In the third week, we assigned different modules to each other to do research on.
 * Modules like Character designing, Music implementation, UI development etc. were researched on and discussed.
-* Since we all respect the responsibilities given to us, we are commited to our work and try our best to finish it on time.
+* Since we all respect the responsibilities given to us, we are committed to our work and try our best to finish it on time.
 
 ### Week #4
 * In the fourth week, we divided different modules among ourselves like UI, Character, Maps, Sound etc.
 * development on different modules is started.
+
+### Week #5
+* We divided tasks to create maps for our 2D game.
+* We learnt how to import maps in the game and interact with different objects on the map.
