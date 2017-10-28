@@ -1,5 +1,13 @@
 // test game
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var box = function(options) {
+	var bmd = game.add.bitmapData(options.length, options.width);
+	bmd.ctx.beginPath();
+	bmd.ctx.rect(0,0,options.length, options.width);
+	bmd.ctx.fillStyle = options.color;
+	bmd.ctx.fill();
+	return bmd;
+}
 
 function preload() {
     
@@ -18,6 +26,7 @@ var score = 0;
 var scoreText;
 
 var walls;
+var outWalls;
 var roomSize = 400;
 var topLeft = 23;
 
@@ -28,7 +37,7 @@ function create() {
     sky= game.add.sprite(0,0,'sky');   
     
      // The player and its setting 
-    player = game.add.sprite(50,50,'dude');
+    player = game.add.sprite(60,60,'dude');
  //   player = game.add.sprite(50,60,'batman');
  //   player.scale.setTo(0.1, 0.1);
     player.anchor.setTo(0.5);
@@ -54,10 +63,22 @@ function create() {
         bar.body.immovable = true;
       
     }
+	
+	  outWalls= game.add.group();
+		outWalls.enableBody = true;
+		var topWall = outWalls.create(topLeft+5,topLeft+5, box({length: roomSize, width: 16, color: '#374A59'}));
+		topWall.body.immovable = true;
+		var bottomWall = outWalls.create(topLeft+5,topLeft+10+roomSize, box({length: roomSize, width: 16, color: '#374A59'}));
+		bottomWall.body.immovable = true;
+		var leftWall = outWalls.create(topLeft+5,topLeft+12, box({length: 16, width: roomSize, color: '#374A59'}));
+		leftWall.body.immovable = true;
+		var rightWall = outWalls.create(topLeft+roomSize-11,topLeft+12, box({length: 16, width: roomSize, color: '#374A59'}));
+		rightWall.body.immovable = true;
    
      // draw a rectangle
-    graphics.lineStyle(3, 0x374A59, 1);
-    graphics.drawRect(topLeft, topLeft, roomSize, roomSize);
+  /*  graphics.lineStyle(3, 0x374A59, 1);
+    graphics.drawRect(topLeft, topLeft, roomSize, roomSize); 
+	*/
      
     graphics.lineStyle(3, 0x374A59, 1);
     graphics.drawRect(topLeft*5 + roomSize, topLeft, roomSize/2, roomSize);
@@ -101,6 +122,8 @@ function update() {
     }
    
     game.physics.arcade.collide(player, walls);
+	
+	  game.physics.arcade.collide(player, outWalls);
   
     
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
@@ -134,4 +157,3 @@ function collectStar (player, star) {
     scoreText.text = 'Score: ' + score;
 
 }
-
