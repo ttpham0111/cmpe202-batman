@@ -19,3 +19,6 @@ Every person in the group is assigned the task which is placed in the Kanban car
 ### Week 4
 * We have understood the area we want to focus onto, we have clearly decided our area of focus. Programming learning is in continuos progression. Later we will start with our tasks
 * We have had a communication regarding the tasks and distributed well. The Game development has started and every person in focusing on his target job.
+
+### Week 5
+* We are having communications daily to have requirement fulfilled and successfully merge the code. Every part is developed cleanly and updated in Git.
