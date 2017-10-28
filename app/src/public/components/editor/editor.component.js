@@ -1,10 +1,21 @@
 Vue.component('todo-editor', {
   template: `
-    <b-card bg-variant="dark" text-variant="white" title="Editor">
-      <p class="card-text">
-        This is the game editor, code will be written and processed here. The resulting instructions will
-        be passed to the game screen.
-      </p>
-    </b-card>
-  `
+    <div ref="editor"></div>
+  `,
+
+  data: function() {
+    return {
+      editor: null,
+      editorOptions: {
+        mode: 'javascript',
+        theme: 'blackboard',
+        lineNumbers: true
+      }
+    };
+  },
+
+  mounted: function() {
+    this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
+    this.editor.setSize(null, '100%');
+  }
 });

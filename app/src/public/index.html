@@ -16,6 +16,10 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/codemirror.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/theme/blackboard.min.css">
+
     <!------------
     - Components -
     ------------->
@@ -39,6 +43,24 @@
     <!-- Vue Router -->
     <script src="//unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
 
+    <!-- CodeMirror -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/codemirror.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/mode/javascript/javascript.min.js"></script>
+
+    <!-- Phaser -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.1/phaser.min.js"></script>
+
+    <!------
+    - Game -
+    ------->
+    <!-- Models -->
+    <script src="public/static/game/js/models/Hero.model.js"></script>
+
+    <!-- States -->
+    <script src="public/static/game/js/states/Boot.state.js"></script>
+    <script src="public/static/game/js/states/Preloader.state.js"></script>
+    <script src="public/static/game/js/states/Level-1.state.js"></script>
+
     <!------------
     - Components -
     ------------->
@@ -48,7 +70,7 @@
     <script src="public/components/editor/editor.component.js"></script>
 
     <!-- Game -->
-    <script src="public/components/game-screen/game-screen.component.js"></script>
+    <script src="public/components/game/game.component.js"></script>
 
     <!-- Router -->
     <script src="public/router.js"></script>
