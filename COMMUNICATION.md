@@ -22,3 +22,4 @@ Every person in the group is assigned the task which is placed in the Kanban car
 
 ### Week 5
 * We are having communications daily to have requirement fulfilled and successfully merge the code. Every part is developed cleanly and updated in Git.
+* Half of the done is done successfully with collboration and now the later part will be done the same way. Everybody have clear sight of the work need to be done discussed on meetings.
