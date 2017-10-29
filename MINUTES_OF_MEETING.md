@@ -81,7 +81,7 @@
 * How to set up layers and tiles of the map in PhaserJS
 
 
-## Week 4 - Oct 22 - Oct 28
+## Week 5 - Oct 22 - Oct 28
 **What did the team do the past week?**
 * Decide on maps for different levels.
 * Maps created for first 2 levels.
