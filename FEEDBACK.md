@@ -20,3 +20,9 @@
 * Last two weeks, we were thinking about how to design the details of the game and how to implement them. Everyone started working on the game so we were able to give each other feedbacks on how the game should be. We take each other's feedback and decided to choose a room and desert map for our game, and the main character's movements, as well as the user interface of the entire game.
 * We also discussed about the design patterns and coding maintainability of our project, after getting feedback from more experienced developers, we learned how to write more reusable code in the future. 
 * Taking feedback is very important in working as a team, we can constantly learn from each other and we improve faster than working individually.
+
+## Week 5
+* Last week, we started working on creating game levels, we started with just loading an image as our world map. Then we discussed and decided that it will make more sense if we create different layers for the map of each level, so that we can handle collision more easily.
+* We also take feedback for the person's progress and we changed the reponsibilites of our task assignment because some of the work are harder than others thus we need more people working on it.
+
+
