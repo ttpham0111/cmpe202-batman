@@ -23,6 +23,7 @@
 
 ## Week 5
 * Last week, we started working on creating game levels, we started with just loading an image as our world map. Then we discussed and decided that it will make more sense if we create different layers for the map of each level, so that we can handle collision more easily.
-* We also take feedback for the person's progress and we changed the reponsibilites of our task assignment because some of the work are harder than others thus we need more people working on it.
+
+* We also take feedback for all of our teammates' progress and we adjusted the reponsibilites of our task assignment because some of the work are harder than others thus we need more people working on it.
 
 
