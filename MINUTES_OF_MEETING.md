@@ -79,3 +79,19 @@
 * Integrate the work done by individuals.
 * Creating keypad or code-pad for the game-user
 * How to set up layers and tiles of the map in PhaserJS
+
+
+## Week 4 - Oct 22 - Oct 28
+**What did the team do the past week?**
+* Decide on maps for different levels.
+* Maps created for first 2 levels.
+* Worked on characters and movement.
+
+**What is the team going to do next week?**
+* Maps creation for further levels of the game.
+* Research on how to move character from code written by user.
+* Attacking enemy by using bullets.
+
+**What are the current blockers/challenges the team is facing?**
+* Calculating scores by collecting coins.
+* Deciding on maps and different levels to be implemented.
