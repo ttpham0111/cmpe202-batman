@@ -18,10 +18,8 @@ var player;
 
 function create() {
 
-    //  Because we're loading CSV map data we have to specify the tile size here or we can't render it
- //   map = game.add.tilemap('mymap1', 64, 64);
     map = game.add.tilemap('mymap2', 64, 64,15,5);
-//    map = game.add.tilemap('mymap3', 64, 64);
+
 
     //  Now add in the tileset
     map.addTilesetImage('tiles');
@@ -32,12 +30,10 @@ function create() {
     //  Resize the world
     layer.resizeWorld();
 
-    //  This isn't totally accurate, but it'll do for now
+   
     map.setCollisionBetween(54, 83);
 
-    //  Un-comment this on to see the collision tiles
-    // layer.debug = true;
-/*
+    
     //  Player
     player = game.add.sprite(48, 48, 'player', 1);
     player.animations.add('left', [8,9], 10, true);
@@ -49,7 +45,7 @@ function create() {
 
     player.body.setSize(10, 14, 2, 1);
 
-    game.camera.follow(player);*/
+    game.camera.follow(player);
 
     cursors = game.input.keyboard.createCursorKeys();
 
@@ -59,36 +55,7 @@ function create() {
 }
 
 function update() {
-/*
-    game.physics.arcade.collide(player, layer);
 
-    player.body.velocity.set(0);
-
-    if (cursors.left.isDown)
-    {
-        player.body.velocity.x = -100;
-        player.play('left');
-    }
-    else if (cursors.right.isDown)
-    {
-        player.body.velocity.x = 100;
-        player.play('right');
-    }
-    else if (cursors.up.isDown)
-    {
-        player.body.velocity.y = -100;
-        player.play('up');
-    }
-    else if (cursors.down.isDown)
-    {
-        player.body.velocity.y = 100;
-        player.play('down');
-    }
-    else
-    {
-        player.animations.stop();
-    }
-*/
 }
 
 function render() {
