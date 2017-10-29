@@ -15,3 +15,6 @@ To really see the whole, the team must understand atleast at a high level, what 
 
 ## Week 4
 After all the work to explore the various aspects of creating a web game, we've finally started creating code. We've learned how important it is to get a better sense of the big picture and scope of the project before starting to implement the little details. The results should be more scalable with less code debt.
+
+## Week 5
+This week we had great demos of the working pieces of the game. We each took turn demo-ing the various aspects of the game we worked on. We saw how to move the character around, how to interact with objects, how to create the map, and how to interact with enemies. We also got an overview of the overall app with the API's between each piece. The purpose of all this is to make sure that every member of the team understands the whole game, rather than just the bit they worked on. In the coming week, we will focus on establishing concrete APIs so that each piece can be developed individually while still being able to easily integrate together.
