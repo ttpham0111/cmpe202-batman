@@ -31,7 +31,7 @@ Game.Level1.prototype = {
 
 	create : function(){
 		
-
+		this.add.tileSprite(0, 0, 640, 640, 'background');
 
 		
 
@@ -81,7 +81,7 @@ Game.Level1.prototype = {
 
 		//this.physics.arcade.gravity.y = 1400 ; 
 
-		map = this.add.tilemap('map',32 , 32)
+		map = this.add.tilemap('map');
 		
 
 		map.addTilesetImage('tileset');
@@ -90,7 +90,10 @@ Game.Level1.prototype = {
 		layer = map.createLayer(0) ;
 		layer.resizeWorld() ; 
 
-		map.setCollisionBetween(1,1); 
+		
+		map.setCollisionBetween(0 , 500);
+		map.setCollision([155,135] , false) ; 
+
 		map.setTileIndexCallback(0 , this.resetPlayer , this );
 		map.setTileIndexCallback(2 , this.getCoin , this );
 		
