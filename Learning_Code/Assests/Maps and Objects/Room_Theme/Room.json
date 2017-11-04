@@ -19,7 +19,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"Image.tsx"
+         "source":"Room.tsx"
         }],
  "tilewidth":32,
  "type":"map",
