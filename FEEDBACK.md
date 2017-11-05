@@ -26,4 +26,9 @@
 
 * We also take feedback for all of our teammates' progress and we adjusted the reponsibilites of our task assignment because some of the work are harder than others thus we need more people working on it.
 
+## Week 6
+*  Since this week we started to integrate our game, in order to make the process more productive, high level of feedback was paramount. We took feedback from every teammate to make sure we are all on the same page, not facing any major blockages. 
 
+*  One of the team member designed the class diagram, so we discussed about the diagram and assigned our tasks based on our current knowledge of phaser, and make sure every one is doing what they are familiar with. 
+
+*  Our tile map had a problem because we are using three different csv files for all the levels. After discussing and researching, we decided that we should only include one csv file. In the future, we will change our map design and make it easier for other teammates to use.  
