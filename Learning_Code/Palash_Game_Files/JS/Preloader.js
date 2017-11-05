@@ -16,8 +16,11 @@ Game.Preloader.prototype = {
 
 		//Load All assets
 
-		this.load.tilemap('map', '../assets/GameTile.csv');
-		this.load.image('tileset' , '../assets/tileImage.jpg');
+		//this.load.tilemap('map', '../assets/GameTile.csv');
+		this.load.tilemap('map', '../assets/Aman/Test.csv');
+		this.load.image('tileset' , '../assets/Aman/Town_Objects.png');
+		
+
 
 
 		//this.load.image('drag' , '../assets/apple.jpg')
@@ -31,6 +34,8 @@ Game.Preloader.prototype = {
 		this.load.image('enemyBullet','../assets/Bullet.jpg')
 
 		
+		 this.load.image("background", "../assets/Aman/Town_Background.png"); 
+		// this.load.image("background", "../assets/Aman/Town_Background.png");
 
 	},
 
