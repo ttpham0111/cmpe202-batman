@@ -3,6 +3,10 @@ Vue.component('todo-editor', {
     <div ref="editor"></div>
   `,
 
+  props: {
+    context: Object
+  },
+
   data: function() {
     return {
       editor: null,
@@ -17,5 +21,6 @@ Vue.component('todo-editor', {
   mounted: function() {
     this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
     this.editor.setSize(null, '100%');
+    this.$set(this.context.editor = this.editor);
   }
 });

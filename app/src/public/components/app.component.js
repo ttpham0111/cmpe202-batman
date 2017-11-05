@@ -3,13 +3,19 @@ Vue.component('todo-app', {
     <b-container fluid>
       <b-row class="h-100 p-3">
         <b-col cols="5">
-          <todo-editor class="h-100"></todo-editor>
+          <todo-editor :context="context" class="h-100"></todo-editor>
         </b-col>
         
         <b-col cols="7">
-          <todo-game-screen class="h-100"></todo-game-screen>
+          <todo-game-screen :context="context" class="h-100"></todo-game-screen>
         </b-col>
       </b-row>
     </b-container>
-  `
+  `,
+
+  data: function() {
+    return {
+      context: {}
+    };
+  }
 });
