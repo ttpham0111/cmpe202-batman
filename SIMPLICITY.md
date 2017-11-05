@@ -19,3 +19,7 @@
 ### Week #5
 * We defined broader backlog items and divided them into simple subtasks. This will improve the development speed.
 * Each team member came up with their completed subtasks and we merged those tasks to complete a broader backlog item by sitting together.
+
+
+### Week #6
+* The class diagram created this week helped in defining simple modules of the application. This helped in collaborative development. Each team member were assigned different modules which helped in faster development.
