@@ -26,9 +26,12 @@ Game.Level1.prototype = {
     //----Changes End------//
 
     this.hero = new Hero(this.game, 0, 0, 'hero');
+    this.bullet = new Bullet(this.game, 0, 0, 'bullet');
+
     this.control = new KeyboardController({
       hero: this.hero,
-      input: this.input.keyboard
+      input: this.input.keyboard ,
+      bullets : this.bullet
     });
 
     var enemy;

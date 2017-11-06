@@ -2,6 +2,7 @@ const KeyboardController = function(context) {
   this._hero = context.hero;
   this._keyboard = context.input;
   this._cursors = this._keyboard.createCursorKeys();
+  this.bullets = context.bullets
 
   controls = {
       

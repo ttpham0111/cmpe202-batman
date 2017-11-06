@@ -4,6 +4,7 @@ Game.Preloader.prototype = {
   preload: function() {
 
     this.load.spritesheet('hero', 'public/static/game/assets/hero.png', 64, 64);
+    this.load.image('bullet','public/static/game/assets/Bullet.jpg')
 
 
     this.load.tilemap("map_level_1", "public/static/game/assets/Maps/level_1/Town.csv");
