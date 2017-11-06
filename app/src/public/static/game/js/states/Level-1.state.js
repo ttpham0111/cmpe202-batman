@@ -7,6 +7,9 @@ Game.Level1 = function(editor) {
 var map;
 var layer;
 
+var bullets ; 
+
+
 Game.Level1.prototype = {
   init: function() {
     this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -26,12 +29,28 @@ Game.Level1.prototype = {
     //----Changes End------//
 
     this.hero = new Hero(this.game, 0, 0, 'hero');
-    this.bullet = new Bullet(this.game, 0, 0, 'bullet');
+    
+
+    //Palash
+
+      bullets = this.add.group();
+      bullets.enableBody = true;
+      bullets.physicsBodyType = Phaser.Physics.ARCADE;
+      bullets.createMultiple(30, 'bullet');
+      bullets.setAll('anchor.x', 0.5);
+      bullets.setAll('anchor.y', 1);
+      bullets.setAll('outOfBoundsKill', true);
+      bullets.setAll('checkWorldBounds', true);
+
+      console.log("Bullets " , bullets) ;
+
+    //Palash end 
 
     this.control = new KeyboardController({
       hero: this.hero,
       input: this.input.keyboard ,
-      bullets : this.bullet
+      bullets : bullets ,
+      
     });
 
     var enemy;

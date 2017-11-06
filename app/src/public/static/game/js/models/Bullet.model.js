@@ -2,7 +2,7 @@ var bullets ;
 
 const Bullet = function(game, x, y, key, group, initialStats) {
 
-  group = group || game.world;
+  console.log("Bullet key  " , key ) ; 
 
 
 
@@ -19,4 +19,11 @@ const Bullet = function(game, x, y, key, group, initialStats) {
 
 
 
+}
+
+
+
+
+Bullet.prototype.shoot = function(){
+	console.log("Palasj") ;
 }

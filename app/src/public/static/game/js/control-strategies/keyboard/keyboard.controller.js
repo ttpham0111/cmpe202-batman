@@ -2,7 +2,8 @@ const KeyboardController = function(context) {
   this._hero = context.hero;
   this._keyboard = context.input;
   this._cursors = this._keyboard.createCursorKeys();
-  this.bullets = context.bullets
+  this.bullets = context.bullets;
+ 
 
   controls = {
       
@@ -14,6 +15,9 @@ const KeyboardController = function(context) {
 KeyboardController.prototype.update = function() {
   const cursors = this._cursors;
   const hero = this._hero;
+  const bullets = this.bullets; 
+  const game =  this.game ; 
+  
 
   if (cursors.up.isDown) {
     hero.getAction('moveUp').perform();
@@ -27,7 +31,15 @@ KeyboardController.prototype.update = function() {
   else if (cursors.left.isDown) {
     hero.getAction('moveLeft').perform();
   }else if(controls.fireButtonL.isDown){
-    hero.getAction('shoot').perform();
+     
+    
+    bullet = bullets.getFirstExists(false) ;
+    if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.x = +200 ; 
+          
+    }
+     
   } else {
     hero.stop();
   }
