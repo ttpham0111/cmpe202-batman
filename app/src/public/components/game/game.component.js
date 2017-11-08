@@ -12,7 +12,7 @@ Vue.component('todo-game-screen', {
     game = new Phaser.Game(gameEl.clientWidth, gameEl.clientHeight, Phaser.AUTO, gameEl);
     game.state.add('boot', new Game.Boot());
     game.state.add('preloader', new Game.Preloader());
-    game.state.add('level-1', new Game.Level1(this.context.editor));
+    game.state.add('level-1', new Game.Level1(this.context));
     game.state.start('boot');
   }
 });

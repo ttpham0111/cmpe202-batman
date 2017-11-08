@@ -19,9 +19,17 @@ Vue.component('todo-editor', {
   },
 
   mounted: function() {
-    this.editor = MirrorFrame(this.$refs.editor, this.editorOptions);
+    this.editor = MirrorFrame(this.$refs.editor, this.editorOptions, {"Run":this.onClickRun});
     //this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
     this.editor.setSize(null, '100%');
     this.$set(this.context.editor = this.editor);
+  },
+
+  methods: {
+    onClickRun: function(){
+      console.log("Running code...");
+      game.state.states[game.state.current].onClickRun();
+    }
   }
+
 });

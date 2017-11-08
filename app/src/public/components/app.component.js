@@ -10,12 +10,16 @@ Vue.component('todo-app', {
           <todo-game-screen :context="context" class="h-100"></todo-game-screen>
         </b-col>
       </b-row>
+      <modal-component :modalText="context.modalText" v-if="context.showModal" @close="context.closeModal()"></modal-component>
     </b-container>
   `,
 
   data: function() {
     return {
-      context: {}
+      context: {
+        showModal: false,
+        modalText: ""
+      }
     };
   }
 });

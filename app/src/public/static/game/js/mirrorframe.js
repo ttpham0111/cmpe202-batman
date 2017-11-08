@@ -3,7 +3,7 @@
  * should probably not be used in a real project.
  */
 
-const MirrorFrame = function(place, options) {
+const MirrorFrame = function(place, options, clickHandlers) {
   this.home = document.createElement("div");
   this.home.className = 'CodeMirror-container';
   if (place.appendChild)
@@ -13,18 +13,25 @@ const MirrorFrame = function(place, options) {
 
   var self = this;
   function makeButton(name) {
+    var buttonContainer = document.createElement("div");
+    buttonContainer.className = 'btn-container';
     var button = document.createElement("input");
     button.type = "button";
     button.value = name;
-    self.home.appendChild(button);
+    buttonContainer.appendChild(button);
+    self.home.appendChild(buttonContainer);
     button.onclick = function(){
-      if(name === 'Run'){
-        console.log("Running code...");
+      if(clickHandlers[name]){
+        clickHandlers[name].call();
+      } else {
+        console.error('Click handler not defined');
       }
     };
   }
 
-  makeButton("Run");
+  for(var key in clickHandlers){
+    makeButton(key);
+  }
 
   this.mirror = CodeMirror(this.home, options);
   return this.mirror;
