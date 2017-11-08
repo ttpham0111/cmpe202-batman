@@ -3,14 +3,19 @@ const KeyboardController = function(context) {
   this._keyboard = context.input;
   this._cursors = this._keyboard.createCursorKeys();
   this.bullets = context.bullets;
- 
+  this.game = context.game 
 
   controls = {
-      
+      fireButtonI : this._keyboard.addKey(Phaser.Keyboard.I),
+      fireButtonJ : this._keyboard.addKey(Phaser.Keyboard.J),
+      fireButtonK : this._keyboard.addKey(Phaser.Keyboard.K),
       fireButtonL : this._keyboard.addKey(Phaser.Keyboard.L),
     };
 
 };
+
+
+var bulletTime = 0 ;
 
 KeyboardController.prototype.update = function() {
   const cursors = this._cursors;
@@ -32,15 +37,48 @@ KeyboardController.prototype.update = function() {
     hero.getAction('moveLeft').perform();
   }else if(controls.fireButtonL.isDown){
      
-    
-    bullet = bullets.getFirstExists(false) ;
-    if(bullet){
+    if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
           bullet.reset(hero.x+50 , hero.y+50);
           bullet.body.velocity.x = +200 ; 
-          
-    }
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
      
-  } else {
+  }else if(controls.fireButtonJ.isDown){
+      if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.x = -200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+   } else if(controls.fireButtonK.isDown){
+      if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.y = +200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+    }else if(controls.fireButtonI.isDown){
+        if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.y = -200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+    }
+    else {
     hero.stop();
   }
 };

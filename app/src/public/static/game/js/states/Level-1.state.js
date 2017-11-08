@@ -50,7 +50,7 @@ Game.Level1.prototype = {
       hero: this.hero,
       input: this.input.keyboard ,
       bullets : bullets ,
-      
+      game : this.game
     });
 
     var enemy;

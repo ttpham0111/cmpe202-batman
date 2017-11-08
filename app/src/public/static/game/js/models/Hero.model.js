@@ -64,8 +64,7 @@ const Hero = function(game, x, y, key, group, initialStats) {
     new MoveUpAction(this),
     new MoveRightAction(this),
     new MoveDownAction(this),
-    new MoveLeftAction(this),
-    new shoot(this)
+    new MoveLeftAction(this)
   ];
   this.addActions(defaultActions);
 };
