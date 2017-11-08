@@ -8,10 +8,10 @@ Game.Level1.prototype = {
   },
 
   create: function() {
-    this.hero = new Hero(this.game, 0, 0, 'hero-link');
-    this.control = new EditorController({
+    this.hero = new Hero(this.game, 0, 0, 'hero');
+    this.control = new KeyboardController({
       hero: this.hero,
-      input: this.editor
+      input: this.input.keyboard
     });
   },
 

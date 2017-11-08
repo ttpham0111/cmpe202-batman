@@ -12,11 +12,12 @@ const Hero = function(game, x, y, key, group, initialStats) {
   this.body.collideWorldBounds = true;
 
   // Add animations
-  const numFrames = 12;
-  this.animations.add('up', Array.from(new Array(numFrames), (x, i) => i), 60, true);
-  this.animations.add('right', Array.from(new Array(numFrames), (x, i) => i + numFrames), 60, true);
-  this.animations.add('down', Array.from(new Array(numFrames), (x, i) => i + (numFrames * 2)), 60, true);
-  this.animations.add('left', Array.from(new Array(numFrames), (x, i) => i + (numFrames * 3)), 60, true);
+  const numFrames = 9;
+  const animationSpeed = 15;
+  this.animations.add('up', Array.from(new Array(numFrames), (x, i) => i), animationSpeed, true);
+  this.animations.add('left', Array.from(new Array(numFrames), (x, i) => i + numFrames), animationSpeed, true);
+  this.animations.add('down', Array.from(new Array(numFrames), (x, i) => i + (numFrames * 2)), animationSpeed, true);
+  this.animations.add('right', Array.from(new Array(numFrames), (x, i) => i + (numFrames * 3)), animationSpeed, true);
 
   // Add to group
   group.add(this);
@@ -34,10 +35,10 @@ const Hero = function(game, x, y, key, group, initialStats) {
     },
 
     frameDirections: {
-      UP: 1,
-      RIGHT: 13,
-      DOWN: 25,
-      LEFT: 37
+      UP: 0,
+      LEFT: numFrames,
+      DOWN: numFrames * 2,
+      RIGHT: numFrames * 3
     }
   };
 
@@ -45,7 +46,7 @@ const Hero = function(game, x, y, key, group, initialStats) {
   initialStats = initialStats || {
     maxHealth: 100,
     strength: 10,
-    speed: 150
+    speed: 100
   };
 
   this._name = 'TODO';
