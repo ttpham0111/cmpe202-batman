@@ -19,7 +19,8 @@ Vue.component('todo-editor', {
   },
 
   mounted: function() {
-    this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
+    this.editor = MirrorFrame(this.$refs.editor, this.editorOptions);
+    //this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
     this.editor.setSize(null, '100%');
     this.$set(this.context.editor = this.editor);
   }

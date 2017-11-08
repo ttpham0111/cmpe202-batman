@@ -6,3 +6,17 @@ html {
 body {
   height: 100%;
 }
+
+.CodeMirror-container {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.CodeMirror-container button {
+	display: table-row;
+}
+
+.CodeMirror-container .CodeMirror {
+	display: table-row;
+}

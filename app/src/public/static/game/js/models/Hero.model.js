@@ -58,7 +58,7 @@ const Hero = function(game, x, y, key, group, initialStats) {
   this._items = [];
   this._actions = {};
 
-  this.direction = this.constants.directions.UP;
+  this.direction = this.constants.directions.RIGHT;
 
   const defaultActions = [
     new MoveUpAction(this),

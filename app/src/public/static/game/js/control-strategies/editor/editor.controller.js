@@ -4,5 +4,5 @@ const EditorController = function(context) {
 };
 
 EditorController.prototype.update = function() {
-  console.log(this._editor.getValue());
+  //console.log(this._editor.getValue());
 };
