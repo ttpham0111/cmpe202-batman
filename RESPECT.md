@@ -23,3 +23,7 @@
 ### Week #5
 * We divided tasks to create maps for our 2D game.
 * We learnt how to import maps in the game and interact with different objects on the map.
+
+### Week #6
+* We are integrating our work into single project.
+* We are defining our start point and end game strategies.
