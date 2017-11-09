@@ -1,7 +1,7 @@
 # Welcome Team Batman! Let's save Gotham :P
 ### Team Batman Members:
 - [Aman Ojha](https://github.com/amanvojha)
-- Ankit Bharadiya
+- [Ankit Bharadiya](https://github.com/asbharadiya)
 - [Bijie (Jessie) Qiu](https://github.com/jessieqiu)
 - [Palash Hedau](https://github.com/palashhedau)
 - [Tuan Pham](https://github.com/ttpham0111)
