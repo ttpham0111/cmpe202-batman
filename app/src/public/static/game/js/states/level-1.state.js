@@ -27,8 +27,8 @@ Game.Level1.prototype = {
 
     this.hero = new Hero(this.game, 0, 0, 'hero');
     
-
-    //Palash
+   
+    
 
     bullets = this.add.group();
     bullets.enableBody = true;
@@ -38,7 +38,7 @@ Game.Level1.prototype = {
     bullets.setAll('anchor.y', 1);
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
-    //Palash end 
+    
 
     this.control = new KeyboardController({
       hero: this.hero,
