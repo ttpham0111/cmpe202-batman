@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1000, 800, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(800, 800, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
 
@@ -15,22 +15,32 @@ function preload() {
     //  This could be Phaser.Tilemap.CSV too.
 
     //  game.load.tilemap('map1', 'assets/Room.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.tilemap('map', 'assets/Test.csv', null, Phaser.Tilemap.CSV);
-
+//    game.load.tilemap('map', 'assets/Test.csv', null, Phaser.Tilemap.CSV);
+    game.load.tilemap('map', 'assets/Room_Theme/Room.csv', null, Phaser.Tilemap.CSV);
+    
+    
     //  Next we load the tileset. This is just an image, loaded in via the normal way we load images:
+  //  game.load.image('tiles', 'assets/Town_Objects.png');
+    game.load.image('tiles', 'assets/Room_Theme/Room.jpg');
+    
 
-    game.load.image('tiles', 'assets/Town_Objects.png');
-
-    game.load.image("background", "assets/Town_Background.png");
-
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+ //   game.load.image("background", "assets/Town_Background.png");
+    game.load.image("background", "assets/Room_Theme/Room_Background.png");
+    
+ //   game.load.spritesheet('player','assets/player.png', 32, 48);
+    game.load.spritesheet('player','assets/dude.png', 32, 48);
+    game.load.image("ivy", "assets/enemies/ivy.png");
+    game.load.image("riddler", "assets/enemies/riddler.png");
 
 }
 
 var map;
 var layer;
 var player;
+var score;
 var cursors;
+var enemy;
+var enemies = [];
 
 function create() {
 
@@ -64,18 +74,34 @@ function create() {
 
     map.setCollisionBetween(0, 500);
     map.setCollision([155, 135], false);
+   
+   
+	player = game.add.sprite(75 , 75 , 'player');
+    player.scale.setTo(1.2, 1.2);
+	player.anchor.setTo(0.5);
+	game.physics.arcade.enable(player);
+	player.body.collideWorldBounds = true ;
 
-    player = game.add.sprite(60, 60, 'dude');
-    //   player = game.add.sprite(50,60,'batman');
-    //   player.scale.setTo(0.1, 0.1);
-    player.anchor.setTo(0.5);
-    game.physics.arcade.enable(player);
-    player.body.collideWorldBounds = true;
     player.body.bounce.x = 0.5;
     player.body.bounce.y = 0.5;
+    
+  //  enemy = game.add.sprite(300 , 200 , 'ivy');
+  //  enemy.scale.setTo(0.08, 0.08);
+    
+    
+    var factory = new Factory();
+    enemies.push(factory.createEnemies("ivy"));
+    enemies.push(factory.createEnemies("joker"));
+    enemies.push(factory.createEnemies("riddler"));
+    enemies.push(factory.createEnemies("Freeze"));
+    enemies.push(factory.createEnemies("scarecrow"));
+    
+    
+    for (var i = 0, len = enemies.length; i < len; i++) {
+        enemies[i].showType();
+    }
 
     cursors = game.input.keyboard.createCursorKeys();
-
 
 }
 
@@ -83,12 +109,17 @@ function create() {
 function update() {
 
 
+    game.physics.arcade.collide(player, layer);
+    
+    for (var i = 0, len = enemies.length; i < len; i++) {
+        enemy =  enemies[i];
+        game.physics.arcade.overlap(player, enemy, detection, null, this);
+    }
+    
     //initial velocity
     player.body.velocity.x = 0;
     player.body.velocity.y = 0;
-
-
-
+	
     if (cursors.left.isDown) {
         player.body.velocity.x = -200;
     }
@@ -104,3 +135,85 @@ function update() {
     }
 
 }
+
+function Factory() {
+    this.createEnemies = function (type) {
+        var Enemy;
+ 
+        if (type === "ivy") {
+            Enemy = new ivy();
+        } else if (type === "joker") {
+            Enemy = new joker();
+        } else if (type === "scarecrow") {
+            Enemy = new scarecrow();
+        } else if (type === "Freeze") {
+            Enemy = new Freeze();
+        } else if  (type === "riddler") {
+            Enemy = new riddler();
+        }
+ 
+        Enemy.type = type;
+ 
+        Enemy.showType = function () {
+            
+            alert("my type is: "+ this.type); 
+          
+        }
+ 
+        return Enemy;
+    }
+}
+
+
+var ivy = function () {
+    this.name = "ivy";
+    this.skill = "poison";
+    var ivyImage;
+    ivyImage = game.add.sprite(400 , 200 , 'ivy');
+    ivyImage.scale.setTo(0.08, 0.08);
+};
+ 
+var joker = function () {
+    this.name = "joker";
+    this.skill = "bomb";
+};
+ 
+var scarecrow = function () {
+    this.name = "scarecrow";
+    this.skill = "scare";
+};
+ 
+var Freeze = function () {
+    this.name = "Mr. Freeze";
+    this.skill = "freeze you";
+};
+
+var riddler = function () {
+    this.name = "riddler";
+    this.skill = "give a riddle";
+    var riddlerImage;
+    riddlerImage = game.add.sprite(400 , 400 , 'riddler');
+    riddlerImage.scale.setTo(0.15, 0.15);
+};
+
+
+function detection (player, enemy) {
+    
+    
+    if(enemy.type === "riddler") {
+        
+       alert("what is the design pattern that is used when creation of object directly is costly") ; 
+        
+    }
+    
+    //Removes the star from the screen
+    if(true){
+        enemy.kill();
+    }
+    //update the score
+    score += 10;
+    console.log("Score: " , score ) ; 
+  //  scoreText.text = 'Score: ' + score;
+
+}
+
