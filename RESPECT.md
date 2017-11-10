@@ -27,3 +27,8 @@
 ### Week #6
 * We are integrating our work into single project.
 * We are defining our start point and end game strategies.
+
+### Week #7
+* In the final few weeks, we are integrating our codes in the final project area.
+* We are working on different branches to avoid conflicting codes and hampering others codes.
+
