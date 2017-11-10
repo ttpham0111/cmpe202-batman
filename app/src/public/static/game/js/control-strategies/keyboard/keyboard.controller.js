@@ -2,6 +2,12 @@ const KeyboardController = function(context) {
   this._hero = context.hero;
   this._keyboard = context.input;
   this._cursors = this._keyboard.createCursorKeys();
+
+  controls = {
+      
+      fireButtonL : this._keyboard.addKey(Phaser.Keyboard.L),
+    };
+
 };
 
 KeyboardController.prototype.update = function() {
@@ -19,6 +25,8 @@ KeyboardController.prototype.update = function() {
   }
   else if (cursors.left.isDown) {
     hero.getAction('moveLeft').perform();
+  }else if(controls.fireButtonL.isDown){
+    hero.getAction('shoot').perform();
   } else {
     hero.stop();
   }
