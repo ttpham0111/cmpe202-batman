@@ -7,50 +7,43 @@ body {
   height: 100%;
 }
 
-.CodeMirror-container {
-	display: table;
-	width: 100%;
-	height: 100%;
-}
+/*LEVEL 1 TUTORIAL*/
 
-.CodeMirror-container .btn-container {
-	display: table-row;
+#runBtn {
   position: relative;
 }
 
-.CodeMirror-container .btn-container [type=button] {
-  width: 90px;
-}
-
-.CodeMirror-container .btn-container .up-arrow {
-  position: absolute;
-  left: 30px;
+#runBtn #animatedDownArrow {
+  height: 60px;
   width: 60px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+  top: -60px;
   z-index: 11;
-  -webkit-animation-name: upDown; /* Safari 4.0 - 8.0 */
+  -webkit-animation-name: animatedDownArrow; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
   -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
   -webkit-animation-direction: alternate;
-  animation-name: upDown;
+  animation-name: animatedDownArrow;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-@-webkit-keyframes upDown {
-  0%   {top:30px;}
-  100% {top:60px;}
+@-webkit-keyframes animatedDownArrow {
+  0%   {top:-60px;}
+  100% {top:-90px;}
 }
 
 /* Standard syntax */
-@keyframes upDown {
-  0%   {top:30px;}
-  100% {top:60px;}
+@keyframes animatedDownArrow {
+  0%   {top:-60px;}
+  100% {top:-90px;}
 }
 
-.CodeMirror-container .CodeMirror {
-	display: table-row;
-}
+/*LEVEL 1 TUTORIAL*/
 
 /*modal start*/
 
