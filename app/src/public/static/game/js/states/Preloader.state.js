@@ -2,6 +2,7 @@ Game.Preloader = function() {};
 
 Game.Preloader.prototype = {
   preload: function() {
+
     this.load.spritesheet('hero', 'public/static/game/assets/hero.png', 64, 64);
 
 
@@ -11,6 +12,7 @@ Game.Preloader.prototype = {
 
     this.load.image("ivy", "public/static/game/assets/enemies/ivy.png");
     this.load.image("riddler", "public/static/game/assets/enemies/riddler.png");
+
 
   },
 
