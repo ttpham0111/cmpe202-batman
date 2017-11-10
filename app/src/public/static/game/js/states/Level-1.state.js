@@ -2,12 +2,27 @@ Game.Level1 = function(context) {
   this.context = context;
 };
 
+var map;
+var layer;
+
 Game.Level1.prototype = {
   init: function() {
     this.physics.startSystem(Phaser.Physics.ARCADE);
   },
 
   create: function() {
+
+    //----Changes for each level------//
+    this.add.tileSprite(0, 0, 640, 640, 'background_level_1');
+    map = this.add.tilemap('map_level_1');
+    map.addTilesetImage('tileset_level_1');
+    layer = map.createLayer(0) ;
+    layer.resizeWorld() ;
+    map.setCollisionBetween(0 , 500);
+    map.setCollision([155,135] , false) ; 
+
+    //----Changes End------//
+
     this.hero = new Hero(this.game, 0, 0, 'hero');
     this.control = new KeyboardController({
       hero: this.hero,
@@ -35,6 +50,7 @@ Game.Level1.prototype = {
 
   update: function() {
     this.control.update();
+    this.physics.arcade.collide(this.hero , layer);
   },
 
   onClickRun: function() {
