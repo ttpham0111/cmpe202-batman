@@ -13,7 +13,7 @@ Vue.component('todo-app', {
         </b-col>
       </b-row>
       
-      <todo-tutorial v-if="showTutorial" :state-key="currentState.key"></todo-tutorial>
+      <todo-tutorial v-if="showTutorial" :stateKey="currentState.key"></todo-tutorial>
     </b-container>
   `,
 
@@ -27,6 +27,7 @@ Vue.component('todo-app', {
 
   methods: {
     runCode: function() {
+      if(this.showTutorial) this.$emit('hideTutorial');
       this.currentState.run();
     }
   }
