@@ -28,7 +28,7 @@ function preload() {
     game.load.image("background", "assets/Room_Theme/Room_Background.png");
     
  //   game.load.spritesheet('player','assets/player.png', 32, 48);
-    game.load.spritesheet('player','assets/dude.png', 32, 48);
+    game.load.image('player','assets/player.png', 32, 48);
     game.load.image("ivy", "assets/enemies/ivy.png");
     game.load.image("riddler", "assets/enemies/riddler.png");
 
@@ -76,14 +76,12 @@ function create() {
     map.setCollision([155, 135], false);
    
    
-	player = game.add.sprite(75 , 75 , 'player');
-    player.scale.setTo(1.2, 1.2);
-	player.anchor.setTo(0.5);
-	game.physics.arcade.enable(player);
-	player.body.collideWorldBounds = true ;
-
-    player.body.bounce.x = 0.5;
-    player.body.bounce.y = 0.5;
+	player = game.add.sprite(100 , 100 , 'player');
+    player.scale.setTo(0.2, 0.2);
+	player.anchor.set(0.5);
+	game.physics.enable(player);
+//	player.body.collideWorldBounds = true ;
+    game.camera.follow(player);
     
   //  enemy = game.add.sprite(300 , 200 , 'ivy');
   //  enemy.scale.setTo(0.08, 0.08);
@@ -156,8 +154,8 @@ function Factory() {
  
         Enemy.showType = function () {
             
-            alert("my type is: "+ this.type); 
-          
+     //       alert("my type is: "+ this.type); 
+          console.log("my type is: "+ this.type); 
         }
  
         return Enemy;
@@ -204,16 +202,18 @@ function detection (player, enemy) {
         
        alert("what is the design pattern that is used when creation of object directly is costly") ; 
         
+    }else if(type === "Freeze") {
+        
+        
     }
     
     //Removes the star from the screen
     if(true){
         enemy.kill();
+         //update the score
+        score += 10;
+        console.log("Score: " , score ) ; 
+      //  scoreText.text = 'Score: ' + score;
     }
-    //update the score
-    score += 10;
-    console.log("Score: " , score ) ; 
-  //  scoreText.text = 'Score: ' + score;
-
 }
 
