@@ -31,14 +31,6 @@ Game.Level1.prototype = {
       input: this.input.keyboard
     });
 
-    this.context.modalText = "Press 'Run' to get the character moving!"
-    this.context.showModal = true;
-    self = this;
-    this.context.closeModal = function(){
-      self.context.showModal = false;
-      self.showAnimatedUpArrow();
-    }
-    
     var enemy;
     var enemies = [];
     var factory = new Factory();
