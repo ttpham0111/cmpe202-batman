@@ -1,6 +1,9 @@
 Vue.component('todo-editor', {
   template: `
-    <div ref="editor"></div>
+    <div>
+      <div class="h-75" ref="editor"></div>
+      <b-btn @click="onRun" class="rounded-0" block>Run</b-btn>
+    </div>
   `,
 
   props: {
@@ -19,16 +22,14 @@ Vue.component('todo-editor', {
   },
 
   mounted: function() {
-    this.editor = MirrorFrame(this.$refs.editor, this.editorOptions, {"Run":this.onClickRun});
-    //this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
+    this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
     this.editor.setSize(null, '100%');
     this.$set(this.context.editor = this.editor);
   },
 
   methods: {
-    onClickRun: function(){
-      console.log("Running code...");
-      game.state.states[game.state.current].onClickRun();
+    onRun: function(){
+      this.$emit('run');
     }
   }
 
