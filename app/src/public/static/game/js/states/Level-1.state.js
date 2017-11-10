@@ -1,5 +1,7 @@
-Game.Level1 = function(context) {
-  this.context = context;
+Game.Level1 = function(editor) {
+  this.showTutorial = true;
+
+  this._editor = editor;
 };
 
 var map;
@@ -29,13 +31,13 @@ Game.Level1.prototype = {
       input: this.input.keyboard
     });
     //showing guide modal
-    this.context.modalText = "Press 'Run' to get the character moving!"
-    this.context.showModal = true;
-    self = this;
-    this.context.closeModal = function(){
-      self.context.showModal = false;
-      self.showAnimatedUpArrow();
-    }
+    // this.context.modalText = "Press 'Run' to get the character moving!"
+    // this.context.showModal = true;
+    // self = this;
+    // this.context.closeModal = function(){
+    //   self.context.showModal = false;
+    //   self.showAnimatedUpArrow();
+    // }
   },
 
   showAnimatedUpArrow: function(){
@@ -53,10 +55,10 @@ Game.Level1.prototype = {
     this.physics.arcade.collide(this.hero , layer);
   },
 
-  onClickRun: function() {
+  run: function() {
     console.log('Running level 1...');
-    var child = document.getElementById('animatedUpArrow');
-    child.parentNode.removeChild(child);
+    // var child = document.getElementById('animatedUpArrow');
+    // child.parentNode.removeChild(child);
     if(true){
       console.log('Starting level 2...');
     } else {
