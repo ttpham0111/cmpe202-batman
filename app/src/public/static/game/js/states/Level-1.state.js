@@ -30,7 +30,29 @@ Game.Level1.prototype = {
       hero: this.hero,
       input: this.input.keyboard
     });
-    //showing guide modal
+
+    this.context.modalText = "Press 'Run' to get the character moving!"
+    this.context.showModal = true;
+    self = this;
+    this.context.closeModal = function(){
+      self.context.showModal = false;
+      self.showAnimatedUpArrow();
+    }
+    
+    var enemy;
+    var enemies = [];
+    var factory = new Factory();
+    enemies.push(factory.createEnemies("ivy"));
+    enemies.push(factory.createEnemies("joker"));
+    enemies.push(factory.createEnemies("riddler"));
+    enemies.push(factory.createEnemies("Freeze"));
+    enemies.push(factory.createEnemies("scarecrow"));
+    
+    for (var i = 0, len = enemies.length; i < len; i++) {
+        enemies[i].showType();
+    }
+    
+    // showing guide modal
     // this.context.modalText = "Press 'Run' to get the character moving!"
     // this.context.showModal = true;
     // self = this;
@@ -38,6 +60,7 @@ Game.Level1.prototype = {
     //   self.context.showModal = false;
     //   self.showAnimatedUpArrow();
     // }
+    
   },
 
   showAnimatedUpArrow: function(){
