@@ -113,3 +113,19 @@
 **What are the current blockers/challenges the team is facing?**
 * How to convert user code input into commands
 * Introducing the game to the user
+
+## Week 7 - Nov 6 - Nov 12
+**What did the team do the past week?**
+* Completed each level maps
+* Created enemy characters
+* Added other game objects like bullets etc
+
+**What is the team going to do next week?**
+* Code integration
+* Adding map layers to the game screen
+* Tutorial guide
+* User input capture
+
+**What are the current blockers/challenges the team is facing?**
+* Parsing and executing user commands for the character movement
+* Giving user the ability to define his/her own custom functions
