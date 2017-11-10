@@ -2,17 +2,21 @@ Vue.component('todo-editor', {
   template: `
     <div>
       <div class="h-75" ref="editor"></div>
-      <b-btn @click="onRun" class="rounded-0" id="runBtn" block>Run</b-btn>
+      <b-btn @click="onRun" class="rounded-0" id="run-btn" block>Run</b-btn>
     </div>
   `,
 
+  model: {
+    prop: 'editor',
+    event: 'init'
+  },
+
   props: {
-    context: Object
+    editor: Object
   },
 
   data: function() {
     return {
-      editor: null,
       editorOptions: {
         mode: 'javascript',
         theme: 'blackboard',
@@ -22,9 +26,9 @@ Vue.component('todo-editor', {
   },
 
   mounted: function() {
-    this.editor = CodeMirror(this.$refs.editor, this.editorOptions);
-    this.editor.setSize(null, '100%');
-    this.$set(this.context.editor = this.editor);
+    const editor = CodeMirror(this.$refs.editor, this.editorOptions);
+    editor.setSize(null, '100%');
+    this.$emit('init', editor);
   },
 
   methods: {

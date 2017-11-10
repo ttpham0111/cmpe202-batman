@@ -9,19 +9,19 @@ Vue.component('todo-game-screen', {
   },
 
   props: {
-    context: Object,
-    currentState: Object
+    currentState: Object,
+    editor: Object
   },
 
   mounted: function() {
     const self = this;
     const gameEl = this.$refs.game;
-    game = new Phaser.Game(640, 640, Phaser.AUTO, gameEl);
+    game = new Phaser.Game(Game.WIDTH, Game.HEIGHT, Phaser.AUTO, gameEl);
 
-    game.state.add('boot', new Game.Boot());
-    game.state.add('preloader', new Game.Preloader());
-    game.state.add('level-1', new Game.Level1(this.context.editor));
-    game.state.start('boot');
+    game.state.add(Game.states.BOOT, new Game.Boot());
+    game.state.add(Game.states.PRELOADER, new Game.Preloader());
+    game.state.add(Game.states.LEVEL_1, new Game.Level1(this.editor));
+    game.state.start(Game.states.BOOT);
 
     game.state.onStateChange.add(function(stateKey) {
       const state = game.state.states[stateKey];
