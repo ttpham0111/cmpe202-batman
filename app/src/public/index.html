@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 
     <!-- Bootstrap Vue -->
-    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@1.0.0-beta.9/dist/bootstrap-vue.css">
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@1.0.2/dist/bootstrap-vue.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +23,9 @@
     <!------------
     - Components -
     ------------->
-    <!-- TODO: CSS for components here! Remove after first insert -->
+
+    <!-- Tutorial -->
+    <link rel="stylesheet" href="public/components/tutorial/tutorial.component.css">
 
     <!-- Custom -->
     <link rel="stylesheet" href="public/main.css">
@@ -34,11 +36,11 @@
     </div>
 
     <!-- Vue JS -->
-    <script src="//unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
+    <script src="//unpkg.com/vue@2.5.3/dist/vue.min.js"></script>
 
     <!-- Vue Bootstrap -->
     <script src="//unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
-    <script src="//unpkg.com/bootstrap-vue@1.0.0-beta.9/dist/bootstrap-vue.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@1.0.2/dist/bootstrap-vue.js"></script>
 
     <!-- Vue Router -->
     <script src="//unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
@@ -53,6 +55,8 @@
     <!------
     - Game -
     ------->
+    <script src="public/static/game/js/game.js"></script>
+
     <script src="public/static/game/js/control-strategies/keyboard/keyboard.controller.js"></script>
     <script src="public/static/game/js/control-strategies/editor/editor.controller.js"></script>
 
@@ -64,15 +68,15 @@
     <script src="public/static/game/js/models/actions/shoot.js"></script>
 
     <!-- Models -->
-    <script src="public/static/game/js/models/Hero.model.js"></script>
-    <script src="public/static/game/js/models/Bullet.model.js"></script>
+    <script src="public/static/game/js/models/hero.model.js"></script>
+    <script src="public/static/game/js/models/bullet.model.js"></script>
     <script src="public/static/game/js/models/game-objects/enemies/enemy.factory.js"></script>
 
 
     <!-- States -->
-    <script src="public/static/game/js/states/Boot.state.js"></script>
-    <script src="public/static/game/js/states/Preloader.state.js"></script>
-    <script src="public/static/game/js/states/Level-1.state.js"></script>
+    <script src="public/static/game/js/states/boot.state.js"></script>
+    <script src="public/static/game/js/states/preloader.state.js"></script>
+    <script src="public/static/game/js/states/level-1.state.js"></script>
 
     <!-- Components -->
     <script src="public/components/app.component.js"></script>
@@ -85,9 +89,6 @@
 
     <!-- Tutorial -->
     <script src="public/components/tutorial/tutorial.component.js"></script>
-
-    <!-- Modal -->
-    <script src="public/components/modal/modal.component.js"></script>
 
     <!-- Router -->
     <script src="public/router.js"></script>

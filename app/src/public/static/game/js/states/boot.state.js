@@ -1,5 +1,3 @@
-const Game = {};
-
 Game.Boot = function() {};
 
 Game.Boot.prototype = {

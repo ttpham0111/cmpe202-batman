@@ -1,7 +1,15 @@
 Vue.component('todo-tutorial', {
   template: `
-    <div>
-      <modal-component v-if="showModal" :modalText="modalText" @close="onClose"></modal-component>
+    <div id="tutorial">
+      <b-modal ref="modal" class="text-center" size="sm"
+               header-bg-variant="dark" header-text-variant="light"
+               centered hide-footer ok-only
+               @hide="onClose">{{ modalText }}</b-modal>
+
+      <b-tooltip ref="tooltip" triggers="manual"
+                 :target="currentTarget" container="tutorial">
+        <img class="animated-down-arrow" src="public/static/game/assets/down.jpg" />
+      </b-tooltip>
     </div>
   `,
 
@@ -11,46 +19,28 @@ Vue.component('todo-tutorial', {
 
   data: function() {
     return {
-      modalText : "",
-      showModal : false
+      modalText: '',
+      currentTarget: ''
     };
   },
 
   mounted: function() {
-    switch(this.stateKey){
-      case 'level-1':
+    switch (this.stateKey) {
+      case Game.states.LEVEL_1:
         this.modalText = "Press 'Run' to get the character moving!";
-        this.showModal = true;
-        break;
-      default:
+        this.$refs.modal.show();
         break;
     }
   },
 
-  created: function(argument) {
-    self = this;
-    this.$parent.$on('hideTutorial', function(){
-      switch(self.stateKey){
-        case 'level-1':
-          var child = document.getElementById('animatedDownArrow');
-          child.parentNode.removeChild(child);
-          break;
-        default:
-          break;
-      }
-    })
-  },
-
   methods: {
     onClose: function(){
-      switch(this.stateKey){
-        case 'level-1':
-          this.showModal = false;
-          var btnEl = document.getElementById('runBtn');
-          var imgElement = document.createElement("img");
-          imgElement.id = 'animatedDownArrow';
-          imgElement.src = 'public/static/game/assets/down.jpg';
-          btnEl.appendChild(imgElement);
+      switch (this.stateKey) {
+        case Game.states.LEVEL_1:
+          this.currentTarget = 'run-btn';
+          this.$nextTick(() => {
+            this.$refs.tooltip.createToolpop().show();
+          });
           break;
         default:
           break;
