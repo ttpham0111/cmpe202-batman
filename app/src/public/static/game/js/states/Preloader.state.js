@@ -12,9 +12,15 @@ Game.Preloader.prototype = {
 	this.load.image("background_level_1", "public/static/game/assets/Maps/level_1/Town_Background.png", 640, 640 );
 
 	//--Assets for level 2--//
-	this.load.tilemap("map_level_2", "public/static/game/assets/Maps/level_1/Room.csv");
-	this.load.image("tileset_level_2" , "public/static/game/assets/Maps/level_1/Room_Objects.png");
-	this.load.image("background_level_2", "public/static/game/assets/Maps/level_1/Room_Background.png", 640, 640 );
+	this.load.tilemap("map_level_2", "public/static/game/assets/Maps/level_2/Room.csv");
+	this.load.image("tileset_level_2" , "public/static/game/assets/Maps/level_2/Room_Objects.png");
+	this.load.image("background_level_2", "public/static/game/assets/Maps/level_2/Room_Background.png", 640, 640 );
+
+	//--Assets for level 3--//
+	this.load.tilemap("map_level_3", "public/static/game/assets/Maps/level_3/Room_2.csv");
+	this.load.image("tileset_level_3" , "public/static/game/assets/Maps/level_3/Room_2_Objects.png");
+	this.load.image("background_level_3", "public/static/game/assets/Maps/level_3/Room_2_Background.png", 640, 640 );
+
 
 
     this.load.image("ivy", "public/static/game/assets/enemies/ivy.png");
