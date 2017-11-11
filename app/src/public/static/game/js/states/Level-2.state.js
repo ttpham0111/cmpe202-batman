@@ -1,4 +1,4 @@
-Game.Level1 = function(editor) {
+Game.Level2 = function(editor) {
   this.showTutorial = true;
   this._editor = editor;
 };
@@ -7,7 +7,7 @@ const map;
 const layer;
 const bullets ; 
 
-Game.Level1.prototype = {
+Game.Level2.prototype = {
   init: function() {
     this.physics.startSystem(Phaser.Physics.ARCADE);
   },
@@ -15,13 +15,13 @@ Game.Level1.prototype = {
   create: function() {
 
     //----Changes for each level------//
-    this.add.tileSprite(0, 0, 640, 640, 'background_level_1');
-    map = this.add.tilemap('map_level_1');
-    map.addTilesetImage('tileset_level_1');
+    this.add.tileSprite(0, 0, 640, 640, 'background_level_2');
+    map = this.add.tilemap('map_level_2');
+    map.addTilesetImage('tileset_level_2');
     layer = map.createLayer(0) ;
     layer.resizeWorld() ;
     map.setCollisionBetween(0 , 500);
-    map.setCollision([155,135] , false) ; 
+    //map.setCollision([155,135] , false) ; 
 
     //----Changes End------//
 
@@ -68,9 +68,9 @@ Game.Level1.prototype = {
   },
 
   run: function() {
-    console.log('Running level 1...');
+    console.log('Running level 2...');
     if(true){
-      console.log('Starting level 2...');
+      console.log('Starting level 3...');
     } else {
       console.log('Game over!');
     }
