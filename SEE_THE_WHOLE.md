@@ -21,3 +21,6 @@ This week we had great demos of the working pieces of the game. We each took tur
 
 ## Week 6
 We created our first draft of the class diagram which helps to solidify the architecture of the game. Being able to draw out the diagrams and API's helped us split up the work among ourselves. In the following weeks, we will put all of our learnings together and finalize the game. We were only able to draw this big picture by coming together with the pieces and sharing our individual knowledge.
+
+## Week 7
+This week we came together to integrate the various pieces we've individually worked on. The hardest part about integration is that everyone must know how to connect their working part with the rest of the application. This requires everyone to know what data is available to their components. We worked together so that we can each explain our pieces to each other.
