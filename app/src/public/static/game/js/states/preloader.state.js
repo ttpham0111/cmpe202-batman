@@ -2,9 +2,8 @@ Game.Preloader = function() {};
 
 Game.Preloader.prototype = {
   preload: function() {
-
     this.load.spritesheet('hero', 'public/static/game/assets/hero.png', 64, 64);
-    this.load.image('bullet','public/static/game/assets/Bullet.jpg')
+    this.load.image('bullet','public/static/game/assets/Bullet.jpg');
 
     //--Assets for level 1--//
     this.load.tilemap("map_level_1", "public/static/game/assets/Maps/level_1/Town.csv");
@@ -25,8 +24,6 @@ Game.Preloader.prototype = {
 
     this.load.image("ivy", "public/static/game/assets/enemies/ivy.png");
     this.load.image("riddler", "public/static/game/assets/enemies/riddler.png");
-
-
   },
 
   create: function() {
