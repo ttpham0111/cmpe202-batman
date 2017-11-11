@@ -27,18 +27,8 @@ Game.Level1.prototype = {
 
     this.hero = new Hero(this.game, 0, 0, 'hero');
     
-   
-    
-
-    bullets = this.add.group();
-    bullets.enableBody = true;
-    bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    bullets.createMultiple(30, 'bullet');
-    bullets.setAll('anchor.x', 0.5);
-    bullets.setAll('anchor.y', 1);
-    bullets.setAll('outOfBoundsKill', true);
-    bullets.setAll('checkWorldBounds', true);
-    
+    this.bullets = new Bullets(this.game, 0, 0, 'bullet');
+    bullets = this.bullets.getBullets() ; 
 
     this.control = new KeyboardController({
       hero: this.hero,
