@@ -3,9 +3,9 @@ Game.Level2 = function(editor) {
   this._editor = editor;
 };
 
-const map;
-const layer;
-const bullets ; 
+var map;
+var layer;
+var bullets ; 
 
 Game.Level2.prototype = {
   init: function() {

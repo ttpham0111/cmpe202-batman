@@ -1,17 +1,17 @@
 function Factory() {
-    this.createEnemies = function (type) {
+    this.createEnemies = function (game,type) {
         var Enemy;
  
         if (type === "ivy") {
-            Enemy = new ivy();
+            Enemy = new ivy(game);
         } else if (type === "joker") {
-            Enemy = new joker();
+            Enemy = new joker(game);
         } else if (type === "scarecrow") {
-            Enemy = new scarecrow();
+            Enemy = new scarecrow(game);
         } else if (type === "Freeze") {
-            Enemy = new Freeze();
+            Enemy = new Freeze(game);
         } else if  (type === "riddler") {
-            Enemy = new riddler();
+            Enemy = new riddler(game);
         }
  
         Enemy.type = type;
@@ -27,7 +27,7 @@ function Factory() {
 }
 
 
-var ivy = function () {
+var ivy = function (game) {
     this.name = "ivy";
     this.skill = "poison";
     var ivyImage;
@@ -35,22 +35,22 @@ var ivy = function () {
     ivyImage.scale.setTo(0.08, 0.08);
 };
  
-var joker = function () {
+var joker = function (game) {
     this.name = "joker";
     this.skill = "bomb";
 };
  
-var scarecrow = function () {
+var scarecrow = function (game) {
     this.name = "scarecrow";
     this.skill = "scare";
 };
  
-var Freeze = function () {
+var Freeze = function (game) {
     this.name = "Mr. Freeze";
     this.skill = "freeze you";
 };
 
-var riddler = function () {
+var riddler = function (game) {
     this.name = "riddler";
     this.skill = "give a riddle";
     var riddlerImage;

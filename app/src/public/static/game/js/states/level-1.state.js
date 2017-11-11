@@ -3,9 +3,9 @@ Game.Level1 = function(editor) {
   this._editor = editor;
 };
 
-const map;
-const layer;
-const bullets ; 
+var map;
+var layer;
+var bullets ; 
 
 Game.Level1.prototype = {
   init: function() {
@@ -50,11 +50,11 @@ Game.Level1.prototype = {
     var enemy;
     var enemies = [];
     var factory = new Factory();
-    enemies.push(factory.createEnemies("ivy"));
-    enemies.push(factory.createEnemies("joker"));
-    enemies.push(factory.createEnemies("riddler"));
-    enemies.push(factory.createEnemies("Freeze"));
-    enemies.push(factory.createEnemies("scarecrow"));
+    enemies.push(factory.createEnemies(this.game,"ivy"));
+    enemies.push(factory.createEnemies(this.game,"joker"));
+    enemies.push(factory.createEnemies(this.game,"riddler"));
+    enemies.push(factory.createEnemies(this.game,"Freeze"));
+    enemies.push(factory.createEnemies(this.game,"scarecrow"));
     
     for (var i = 0, len = enemies.length; i < len; i++) {
       enemies[i].showType();

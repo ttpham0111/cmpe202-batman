@@ -20,9 +20,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/codemirror.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/theme/blackboard.min.css">
 
-    <!------------
-    - Components -
-    ------------->
+    <!-- Components -->
 
     <!-- Tutorial -->
     <link rel="stylesheet" href="public/components/tutorial/tutorial.component.css">
@@ -52,10 +50,24 @@
     <!-- Phaser -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.1/phaser.min.js"></script>
 
-    <!------
-    - Game -
-    ------->
-    <script src="public/static/game/js/game.js"></script>
+
+    <!-- Components -->
+    <script src="public/components/app.component.js"></script>
+
+    <!-- Editor -->
+    <script src="public/components/editor/editor.component.js"></script>
+
+    <!-- Game -->
+    <script src="public/components/game/game.component.js"></script>
+
+    <!-- Tutorial -->
+    <script src="public/components/tutorial/tutorial.component.js"></script>
+
+    <!-- Router -->
+    <script src="public/router.js"></script>
+
+    <!--Game -->
+    <script src="public/static/game/js/game.class.js"></script>
 
     <script src="public/static/game/js/control-strategies/keyboard/keyboard.controller.js"></script>
     <script src="public/static/game/js/control-strategies/editor/editor.controller.js"></script>
@@ -77,21 +89,8 @@
     <script src="public/static/game/js/states/boot.state.js"></script>
     <script src="public/static/game/js/states/preloader.state.js"></script>
     <script src="public/static/game/js/states/level-1.state.js"></script>
-
-    <!-- Components -->
-    <script src="public/components/app.component.js"></script>
-
-    <!-- Editor -->
-    <script src="public/components/editor/editor.component.js"></script>
-
-    <!-- Game -->
-    <script src="public/components/game/game.component.js"></script>
-
-    <!-- Tutorial -->
-    <script src="public/components/tutorial/tutorial.component.js"></script>
-
-    <!-- Router -->
-    <script src="public/router.js"></script>
+    <script src="public/static/game/js/states/level-2.state.js"></script>
+    <script src="public/static/game/js/states/level-3.state.js"></script>
 
     <script>
       new Vue({
