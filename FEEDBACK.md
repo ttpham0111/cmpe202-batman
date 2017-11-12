@@ -32,3 +32,11 @@
 *  One of the team member designed the class diagram, so we discussed about the diagram and assigned our tasks based on our current knowledge of phaser, and make sure every one is doing what they are familiar with. 
 
 *  Our tile map had a problem because we are using three different csv files for all the levels. After discussing and researching, we decided that we should only include one csv file. In the future, we will change our map design and make it easier for other teammates to use.  
+
+## Week 7
+*  We had a meeting when we sat together and merged our code together. We helped each other, some developers are with more experience on a certain area help other developers who are less experienced in that area. That way we got things done faster than working alone. It seemed to be a efficient way for us to make progress in the project. We will take this method in the future when we need help from others.
+
+*  We also discussed that, whenever we want to push code to the master branch, we first create a new branch and commit the code there,
+that way, we can request other teammates to review and approve. Once it is approved, only then we merge to master branch. By doing this, we will not have issues caused by changing our codes by mistake, or bringing unnecessary bugs to our project. We discussed and tried this method in the meeting, it worked well and we decided to adopt this method in the future.  
+
+* Taking feedback in the above ways really help us forming an organized and professional way in developing as a team.
