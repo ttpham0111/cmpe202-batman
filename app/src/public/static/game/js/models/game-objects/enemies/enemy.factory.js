@@ -43,6 +43,11 @@ function Factory() {
 
         enemiesToKill.x = 300;
         enemiesToKill.y = 300 ;
+    },
+
+    this.killEnemies = function(bullet , enemy){
+        bullet.kill();
+        enemy.kill() ; 
     }
 }
 

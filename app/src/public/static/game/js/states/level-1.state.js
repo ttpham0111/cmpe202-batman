@@ -56,7 +56,7 @@ Game.Level1.prototype = {
   update: function() {
     this.control.update();
     this.physics.arcade.collide(this.hero , layer);
-    this.physics.arcade.overlap(bulletsObj , this.enemiesToKill , this.collisionHandler  , null , this) ; 
+    this.physics.arcade.overlap(bulletsObj , this.enemiesToKill , this.factory.killEnemies  , null , this) ; 
   },
 
   run: function() {
@@ -68,9 +68,6 @@ Game.Level1.prototype = {
     }
   },
 
-  collisionHandler :  function(bullet , enemy){
-     bullet.kill();
-        enemy.kill() ; 
-  }
+  
 
 };
