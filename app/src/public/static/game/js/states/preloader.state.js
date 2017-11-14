@@ -20,8 +20,11 @@ Game.Preloader.prototype = {
   	this.load.image("tileset_level_3" , "public/static/game/assets/Maps/level_3/Room_2_Objects.png");
   	this.load.image("background_level_3", "public/static/game/assets/Maps/level_3/Room_2_Background.png", 640, 640 );
 
-    this.load.image("ivy", "public/static/game/assets/enemies/ivy.png");
+    this.load.image("ivy", "public/static/game/assets/enemies/ivy.png" , 32 , 32);
     this.load.image("riddler", "public/static/game/assets/enemies/riddler.png");
+
+    this.load.image('enemy','public/static/game/assets/enemies/enemy.jpg',32 , 32)
+
   },
 
   create: function() {
