@@ -5,7 +5,7 @@ Game.Level1 = function(editor) {
 
 var map;
 var layer;
-var bullets ; 
+var bulletsObj ; 
 
 Game.Level1.prototype = {
   init: function() {
@@ -28,33 +28,35 @@ Game.Level1.prototype = {
     this.hero = new Hero(this.game, 0, 0, 'hero');
     
     this.bullets = new Bullets(this.game, 0, 0, 'bullet');
-    bullets = this.bullets.getBullets() ; 
+    bulletsObj = this.bullets.getBullets() ; 
 
     this.control = new KeyboardController({
       hero: this.hero,
       input: this.input.keyboard ,
-      bullets : bullets ,
+      bullets : bulletsObj ,
       game : this.game
     });
 
     var enemy;
     var enemies = [];
-    var factory = new Factory();
-    enemies.push(factory.createEnemies(this.game,"ivy"));
-    enemies.push(factory.createEnemies(this.game,"joker"));
-    enemies.push(factory.createEnemies(this.game,"riddler"));
-    enemies.push(factory.createEnemies(this.game,"Freeze"));
-    enemies.push(factory.createEnemies(this.game,"scarecrow"));
-    
-    for (var i = 0, len = enemies.length; i < len; i++) {
-      enemies[i].showType();
-    }
+    this.factory = new Factory();
+    enemies.push(this.factory.createEnemies(this.game,"ivy"));
+    enemies.push(this.factory.createEnemies(this.game,"joker"));
+    enemies.push(this.factory.createEnemies(this.game,"riddler"));
+    enemies.push(this.factory.createEnemies(this.game,"Freeze"));
+    enemies.push(this.factory.createEnemies(this.game,"scarecrow"));
+
+    //getEnemiesToKill
+    this.enemiesToKill = this.factory.getEnemiesToKill(this.game, 'enemy');
+
+
     
   },
 
   update: function() {
     this.control.update();
     this.physics.arcade.collide(this.hero , layer);
+    this.physics.arcade.overlap(bulletsObj , this.enemiesToKill , this.collisionHandler  , null , this) ; 
   },
 
   run: function() {
@@ -64,5 +66,11 @@ Game.Level1.prototype = {
     } else {
       console.log('Game over!');
     }
+  },
+
+  collisionHandler :  function(bullet , enemy){
+     bullet.kill();
+        enemy.kill() ; 
   }
+
 };

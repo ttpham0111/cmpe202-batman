@@ -1,3 +1,5 @@
+var enemiesToKill  ;  
+
 function Factory() {
     this.createEnemies = function (game,type) {
         var Enemy;
@@ -23,6 +25,24 @@ function Factory() {
         }
  
         return Enemy;
+    },
+
+    this.getEnemiesToKill = function(game , enemyKey){
+       enemiesToKill = game.add.group();
+       enemiesToKill.enableBody = true;
+       enemiesToKill.physicsBodyType = Phaser.Physics.ARCADE;
+
+       this.createEnemiesToKill( enemyKey);
+       return enemiesToKill ; 
+    },
+
+    this.createEnemiesToKill = function( enemyKey){
+        console.log("Creating enemies")
+        var enemy1 = enemiesToKill.create(48 , 50 , enemyKey);
+        enemy1.anchor.setTo(0.5,0.5);
+
+        enemiesToKill.x = 300;
+        enemiesToKill.y = 300 ;
     }
 }
 
@@ -57,6 +77,7 @@ var riddler = function (game) {
     riddlerImage = game.add.sprite(400 , 400 , 'riddler');
     riddlerImage.scale.setTo(0.15, 0.15);
 };
+
 
 
 
