@@ -4,6 +4,7 @@ Game.Preloader.prototype = {
   preload: function() {
     this.load.spritesheet('hero', 'public/static/game/assets/hero.png', 64, 64);
     this.load.image('bullet','public/static/game/assets/Bullet.jpg');
+    this.load.image('enemyBullet','public/static/game/assets/enemyBullet.png');
 
     //--Assets for level 1--//
     this.load.tilemap("map_level_1", "public/static/game/assets/Maps/level_1/Town.csv");
@@ -14,6 +15,10 @@ Game.Preloader.prototype = {
   	this.load.tilemap("map_level_2", "public/static/game/assets/Maps/level_2/Room.csv");
   	this.load.image("tileset_level_2" , "public/static/game/assets/Maps/level_2/Room_Objects.png");
   	this.load.image("background_level_2", "public/static/game/assets/Maps/level_2/Room_Background.png", 640, 640 );
+
+    //Assets for level4
+    this.load.tilemap("level_4", "public/static/game/assets/Maps/level_2/level_2/room.csv");
+    this.load.image("tileset_4" , "public/static/game/assets/Maps/level_2/level_2/room.jpg");
 
   	//--Assets for level 3--//
   	this.load.tilemap("map_level_3", "public/static/game/assets/Maps/level_3/Room_2.csv");

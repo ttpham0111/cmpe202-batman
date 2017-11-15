@@ -6,6 +6,8 @@ Game.Level1 = function(editor) {
 var map;
 var layer;
 var bulletsObj ; 
+var EnamyBulletsObj ; 
+
 
 Game.Level1.prototype = {
   init: function() {
@@ -27,8 +29,11 @@ Game.Level1.prototype = {
 
     this.hero = new Hero(this.game, 0, 0, 'hero');
     
-    this.bullets = new Bullets(this.game, 0, 0, 'bullet');
+    this.bullets = new Bullets(this.game, 0, 0, 'bullet' , 'enemyBullet');
     bulletsObj = this.bullets.getBullets() ; 
+    EnamyBulletsObj = this.bullets.getEnemyBullets() ; 
+
+
 
     this.control = new KeyboardController({
       hero: this.hero,
@@ -55,6 +60,20 @@ Game.Level1.prototype = {
     this.control.update();
     this.physics.arcade.collide(this.hero , layer);
     this.physics.arcade.overlap(bulletsObj , this.enemiesToKill , this.factory.killEnemies  , null , this) ; 
+    
+
+
+    if(new Date().getSeconds() % 3 == 0){
+
+      this.bullets.enemyShootRight(EnamyBulletsObj , this.enemiesToKill.x+50 ,  this.enemiesToKill.y+60 , this.game.time.now )
+
+    }
+
+    if(new Date().getSeconds() % 2 == 0){
+      this.bullets.enemyShootLeft(EnamyBulletsObj , this.enemiesToKill.x+50 ,  this.enemiesToKill.y+60 , this.game.time.now )
+
+    }
+    
   },
 
   run: function() {
