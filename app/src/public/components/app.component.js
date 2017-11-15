@@ -3,12 +3,12 @@ Vue.component('todo-app', {
     <b-container fluid>
       <b-row class="h-100 p-3">
         <b-col cols="5">
-          <todo-editor :context="context" class="h-100" @run="runCode"></todo-editor>
+          <todo-editor v-model="editor" class="h-100" @run="runCode"></todo-editor>
         </b-col>
         
         <b-col cols="7">
           <todo-game-screen class="h-100"
-                            v-model="currentState" :context="context"
+                            v-model="currentState" :editor="editor"
                             @show-tutorial="showTutorial = true"></todo-game-screen>
         </b-col>
       </b-row>
@@ -20,14 +20,14 @@ Vue.component('todo-app', {
   data: function() {
     return {
       currentState: null,
-      showTutorial: false,
-      context: {}
+      editor: null,
+      showTutorial: false
     };
   },
 
   methods: {
     runCode: function() {
-      if(this.showTutorial) this.$emit('hideTutorial');
+      this.showTutorial = false;
       this.currentState.run();
     }
   }

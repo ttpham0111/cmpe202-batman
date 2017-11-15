@@ -27,3 +27,7 @@ Every person in the group is assigned the task which is placed in the Kanban car
 ### Week 6
 * We will be integrating the things the maps with the business logic in this week. Three Team-members will be collaborating the all the  things into one and everyone is aware of the responsibility they want to perform.
 * We are meeting twice a week and have have clearer ideas what task is assigned to what person. At the mid of the week, we try to collaborate all peoples work. 
+
+### Week 7
+* We are maintaining a strong communication now to have the code integrated in the application , we are into almost last phase of the game development where all the merging is happening and in proper way.
+* We are having meet-ups for more than once a week now, strong inter-team communication is going on, and people working in the same module are in frequent contact with one another.

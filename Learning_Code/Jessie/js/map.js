@@ -35,23 +35,48 @@ function create() {
 
 function update() {
 
+    //initial velocity
+	  player.body.velocity.x = 0;
+    player.body.velocity.y = 0;
+
+    if(score>=120){
+       scoreText.text = 'You won!!!';
+    }
+   
+    game.physics.arcade.collide(player, walls);
+	
+	  game.physics.arcade.collide(player, outWalls);
+  
+    
+    game.physics.arcade.overlap(player, stars, collectStar, null, this);
+  
     if (cursors.left.isDown)
     {
-        game.camera.x -= 4;
+        player.body.velocity.x = -200;
     }
     else if (cursors.right.isDown)
     {
-        game.camera.x += 4;
+        player.body.velocity.x = 200;
     }
 
     if (cursors.up.isDown)
     {
-        game.camera.y -= 4;
+        player.body.velocity.y = -200;
     }
     else if (cursors.down.isDown)
     {
-        game.camera.y += 4;
+        player.body.velocity.y = 200;
     }
 
 }
 
+function collectStar (player, star) {
+    
+    //Removes the star from the screen
+    star.kill();
+
+    //update the score
+    score += 10;
+    scoreText.text = 'Score: ' + score;
+
+}

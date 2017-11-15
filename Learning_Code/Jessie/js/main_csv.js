@@ -186,6 +186,16 @@ var Freeze = function () {
     this.skill = "freeze you";
 };
 
+var Penguin= function () {
+    this.name = "Penguin";
+    this.skill = "murder";
+};
+
+var Harley = function () {
+    this.name = "Harley Quinn";
+    this.skill = "super power";
+};
+
 var riddler = function () {
     this.name = "riddler";
     this.skill = "give a riddle";
