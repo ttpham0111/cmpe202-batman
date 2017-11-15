@@ -36,6 +36,10 @@ Vue.component('todo-tutorial', {
         this.modalText = "Fix the code in the editor to move the character to destination!";
         this.$refs.modal.show();
         break;
+      case Game.states.LEVEL_3:
+        this.modalText = "You can make the character turn by using 'turn left' or 'turn right'!";
+        this.$refs.modal.show();
+        break;
       default:
         break;
     }
@@ -53,6 +57,14 @@ Vue.component('todo-tutorial', {
           });
           break;
         case Game.states.LEVEL_2:
+          this.currentTarget = 'editor';
+          this.tooltipSrc = 'public/static/game/assets/left.png';
+          this.tooltipClass = 'animated-left-arrow';
+          this.$nextTick(() => {
+            this.$refs.tooltip.createToolpop().show();
+          });
+          break;
+        case Game.states.LEVEL_3:
           this.currentTarget = 'editor';
           this.tooltipSrc = 'public/static/game/assets/left.png';
           this.tooltipClass = 'animated-left-arrow';
