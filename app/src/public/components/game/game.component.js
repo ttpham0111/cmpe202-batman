@@ -20,6 +20,8 @@ Vue.component('todo-game-screen', {
     game.state.add(Game.states.BOOT, new Game.Boot());
     game.state.add(Game.states.PRELOADER, new Game.Preloader());
     game.state.add(Game.states.LEVEL_1, new Game.Level1(this.editor));
+    game.state.add(Game.states.LEVEL_2, new Game.Level2(this.editor));
+    game.state.add(Game.states.LEVEL_3, new Game.Level3(this.editor));
     game.state.start(Game.states.BOOT);
 
     game.state.onStateChange.add((stateKey) => {

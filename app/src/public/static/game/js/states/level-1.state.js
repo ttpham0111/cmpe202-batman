@@ -49,8 +49,6 @@ Game.Level1.prototype = {
     //getEnemiesToKill
     this.enemiesToKill = this.factory.getEnemiesToKill(this.game, 'enemy');
 
-
-    
   },
 
   update: function() {
@@ -63,11 +61,10 @@ Game.Level1.prototype = {
     console.log('Running level 1...');
     if(true){
       console.log('Starting level 2...');
+      this.state.start(Game.states.LEVEL_2);
     } else {
       console.log('Game over!');
     }
-  },
-
-  
+  }
 
 };

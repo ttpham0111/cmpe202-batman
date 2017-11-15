@@ -49,12 +49,12 @@ Game.Level3.prototype = {
 
     var enemy;
     var enemies = [];
-    var factory = new Factory();
-    enemies.push(factory.createEnemies("ivy"));
-    enemies.push(factory.createEnemies("joker"));
-    enemies.push(factory.createEnemies("riddler"));
-    enemies.push(factory.createEnemies("Freeze"));
-    enemies.push(factory.createEnemies("scarecrow"));
+    this.factory = new Factory();
+    enemies.push(this.factory.createEnemies(this.game,"ivy"));
+    enemies.push(this.factory.createEnemies(this.game,"joker"));
+    enemies.push(this.factory.createEnemies(this.game,"riddler"));
+    enemies.push(this.factory.createEnemies(this.game,"Freeze"));
+    enemies.push(this.factory.createEnemies(this.game,"scarecrow"));
     
     for (var i = 0, len = enemies.length; i < len; i++) {
       enemies[i].showType();

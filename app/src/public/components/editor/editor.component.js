@@ -1,7 +1,7 @@
 Vue.component('todo-editor', {
   template: `
     <div>
-      <div class="h-75" ref="editor"></div>
+      <div class="h-75" ref="editor" id="editor"></div>
       <b-btn @click="onRun" class="rounded-0" id="run-btn" block>Run</b-btn>
     </div>
   `,
