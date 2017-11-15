@@ -8,7 +8,7 @@ Vue.component('todo-tutorial', {
 
       <b-tooltip ref="tooltip" triggers="manual"
                  :target="currentTarget" container="tutorial">
-        <img class="animated-down-arrow" src="public/static/game/assets/down.jpg" />
+        <img :class="tooltipClass" :src="tooltipSrc" />
       </b-tooltip>
     </div>
   `,
@@ -20,7 +20,9 @@ Vue.component('todo-tutorial', {
   data: function() {
     return {
       modalText: '',
-      currentTarget: ''
+      currentTarget: '',
+      tooltipSrc: '',
+      tooltipClass: ''
     };
   },
 
@@ -30,6 +32,12 @@ Vue.component('todo-tutorial', {
         this.modalText = "Press 'Run' to get the character moving!";
         this.$refs.modal.show();
         break;
+      case Game.states.LEVEL_2:
+        this.modalText = "Fix the code in the editor to move the character to destination!";
+        this.$refs.modal.show();
+        break;
+      default:
+        break;
     }
   },
 
@@ -38,6 +46,16 @@ Vue.component('todo-tutorial', {
       switch (this.stateKey) {
         case Game.states.LEVEL_1:
           this.currentTarget = 'run-btn';
+          this.tooltipSrc = 'public/static/game/assets/down.jpg';
+          this.tooltipClass = 'animated-down-arrow';
+          this.$nextTick(() => {
+            this.$refs.tooltip.createToolpop().show();
+          });
+          break;
+        case Game.states.LEVEL_2:
+          this.currentTarget = 'editor';
+          this.tooltipSrc = 'public/static/game/assets/left.png';
+          this.tooltipClass = 'animated-left-arrow';
           this.$nextTick(() => {
             this.$refs.tooltip.createToolpop().show();
           });

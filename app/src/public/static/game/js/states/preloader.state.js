@@ -28,6 +28,6 @@ Game.Preloader.prototype = {
   },
 
   create: function() {
-    this.state.start('level-1');
+    this.state.start(Game.states.LEVEL_1);
   }
 };
