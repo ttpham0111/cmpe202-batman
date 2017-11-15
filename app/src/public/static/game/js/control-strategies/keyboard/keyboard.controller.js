@@ -6,10 +6,7 @@ const KeyboardController = function(context) {
   this.game = context.game 
 
   controls = {
-      fireButtonI : this._keyboard.addKey(Phaser.Keyboard.I),
-      fireButtonJ : this._keyboard.addKey(Phaser.Keyboard.J),
-      fireButtonK : this._keyboard.addKey(Phaser.Keyboard.K),
-      fireButtonL : this._keyboard.addKey(Phaser.Keyboard.L),
+      fireButtonQ : this._keyboard.addKey(Phaser.Keyboard.Q),
     };
 
 };
@@ -24,7 +21,49 @@ KeyboardController.prototype.update = function() {
   const game =  this.game ; 
   
 
-  if (cursors.up.isDown) {
+  if(cursors.right.isDown && controls.fireButtonQ.isDown){
+    if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.x = +200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+  }
+  else if(cursors.up.isDown && controls.fireButtonQ.isDown){
+     if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.y = -200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+  }else if(cursors.down.isDown &&  controls.fireButtonQ.isDown){
+    if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.y = +200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+  }else if(cursors.left.isDown && controls.fireButtonQ.isDown){
+    if(game.time.now > bulletTime){
+        bullet = bullets.getFirstExists(false);
+
+        if(bullet){
+          bullet.reset(hero.x+50 , hero.y+50);
+          bullet.body.velocity.x = -200 ; 
+          bulletTime = game.time.now + 1000 ; 
+        }
+      }
+  }
+  else if (cursors.up.isDown) {
     hero.getAction('moveUp').perform();
   }
   else if (cursors.right.isDown) {
@@ -35,7 +74,7 @@ KeyboardController.prototype.update = function() {
   }
   else if (cursors.left.isDown) {
     hero.getAction('moveLeft').perform();
-  }else if(controls.fireButtonL.isDown){
+  }else if(controls.fireButtonQ.isDown){
      
     if(game.time.now > bulletTime){
         bullet = bullets.getFirstExists(false);
@@ -47,38 +86,7 @@ KeyboardController.prototype.update = function() {
         }
       }
      
-  }else if(controls.fireButtonJ.isDown){
-      if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.x = -200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
-   } else if(controls.fireButtonK.isDown){
-      if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.y = +200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
-    }else if(controls.fireButtonI.isDown){
-        if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.y = -200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
-    }
-    else {
+  }else {
     hero.stop();
   }
 };
