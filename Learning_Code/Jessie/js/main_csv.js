@@ -148,8 +148,12 @@ function Factory() {
             Enemy = new Freeze();
         } else if  (type === "riddler") {
             Enemy = new riddler();
+        } else if (type === "Harley") {
+            Enemy = new Harley();
+        } else if (type === "penguin") {
+            Enemy = new Penguin();
         }
- 
+        
         Enemy.type = type;
  
         Enemy.showType = function () {
@@ -214,8 +218,25 @@ function detection (player, enemy) {
         
     }else if(type === "Freeze") {
         
+        //hero freeze for 5 seconds
+    }else if(type === "ivy"){
+        
+        //hero health minus 5
+        
+    }else if(type === "penguin"){
+        
+        //shoot to kill
+    }else if(type === "joker"){
+        // health minus 10
+        // shoot to kill
+    }else if(type === "Harley") {
+        
+        
+    }else if(type === "scarecrow") {
+        
         
     }
+    
     
     //Removes the star from the screen
     if(true){
