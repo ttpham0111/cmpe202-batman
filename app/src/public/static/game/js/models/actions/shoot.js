@@ -1,8 +1,6 @@
 var hero ; 
 const shoot = function(hero1) {
-	console.log("Initiating Hero") ;
-  hero = hero1;
-  console.log(hero.x) ;
+	hero = hero1;
 };
 
 var bulletTime = 0 ;
@@ -13,8 +11,6 @@ var direction ;
 shoot.prototype.getName  =  function(){return 'shoot'}
 
 shoot.prototype.perform = function(time1 , bullets1 , direction ){
-	
-	console.log("Shooting " , direction);
 	time = time1 ; 
 	bullets = bullets1 ; 
 	new ObjectHandler().startHandler(direction) ; 
