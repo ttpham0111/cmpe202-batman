@@ -22,46 +22,13 @@ KeyboardController.prototype.update = function() {
   
 
   if(cursors.right.isDown && controls.fireButtonQ.isDown){
-    if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.x = +200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
-  }
-  else if(cursors.up.isDown && controls.fireButtonQ.isDown){
-     if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.y = -200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
+     hero.getAction('shoot').perform(game.time.now , bullets , 'right');
+  }else if(cursors.up.isDown && controls.fireButtonQ.isDown){
+     hero.getAction('shoot').perform(game.time.now , bullets , 'up');
   }else if(cursors.down.isDown &&  controls.fireButtonQ.isDown){
-    if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.y = +200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
+    hero.getAction('shoot').perform(game.time.now , bullets , 'down');
   }else if(cursors.left.isDown && controls.fireButtonQ.isDown){
-    if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.x = -200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
+    hero.getAction('shoot').perform(game.time.now , bullets , 'left');
   }
   else if (cursors.up.isDown) {
     hero.getAction('moveUp').perform();
@@ -75,17 +42,7 @@ KeyboardController.prototype.update = function() {
   else if (cursors.left.isDown) {
     hero.getAction('moveLeft').perform();
   }else if(controls.fireButtonQ.isDown){
-     
-    if(game.time.now > bulletTime){
-        bullet = bullets.getFirstExists(false);
-
-        if(bullet){
-          bullet.reset(hero.x+50 , hero.y+50);
-          bullet.body.velocity.x = +200 ; 
-          bulletTime = game.time.now + 1000 ; 
-        }
-      }
-     
+    hero.getAction('shoot').perform(game.time.now , bullets , 'right');
   }else {
     hero.stop();
   }

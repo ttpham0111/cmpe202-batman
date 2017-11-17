@@ -37,7 +37,8 @@ Bullets.prototype.getEnemyBullets = function() {
 }
 
 Bullets.prototype.enemyShootRight = function(EnamyBulletsObj , x , y  , time){
-    if(time > EnemyBulletTime){
+    if(EnamyBulletsObj != null){
+       if(time > EnemyBulletTime){
           enemyBullet = EnamyBulletsObj.getFirstExists(false);
           if(enemyBullet){
             enemyBullet.reset(x, y);
@@ -45,11 +46,15 @@ Bullets.prototype.enemyShootRight = function(EnamyBulletsObj , x , y  , time){
             EnemyBulletTime = time + 1000 ; 
           }
         }
+    }
+
+   
 }
 
 
 Bullets.prototype.enemyShootLeft = function(EnamyBulletsObj , x , y  , time){
-    if(time > EnemyBulletTime){
+     if(EnamyBulletsObj != null){
+        if(time > EnemyBulletTime){
           enemyBullet = EnamyBulletsObj.getFirstExists(false);
           if(enemyBullet){
             enemyBullet.reset(x, y);
@@ -57,4 +62,6 @@ Bullets.prototype.enemyShootLeft = function(EnamyBulletsObj , x , y  , time){
             EnemyBulletTime = time + 1000 ; 
           }
         }
+     }
+    
 }
