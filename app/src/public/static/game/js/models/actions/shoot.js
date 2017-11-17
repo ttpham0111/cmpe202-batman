@@ -26,8 +26,6 @@ shoot.prototype.perform = function(time1 , bullets1 , direction ){
 var Handler = function(direction , velocityDirection , speed ) {
     this.direction = direction;
     this.next = null;
-    this.velocityDirection = velocityDirection ;
-    this.speed = speed 
 }
 
 Handler.prototype = {
@@ -63,10 +61,10 @@ Handler.prototype = {
 
 
 var ObjectHandler = function(){
-	var rightHandler = new Handler('right' , 'x' , "+200" );
-	var leftHandler = new Handler('left' , 'x' , "-200" );
-	var upHandler = new Handler('up' , 'y' , "-200" );
-	var downHandler = new Handler('down' , 'y' , "+200" );
+	var rightHandler = new Handler('right');
+	var leftHandler = new Handler('left'  );
+	var upHandler = new Handler('up'  );
+	var downHandler = new Handler('down' );
 
 	rightHandler.setSuccessor(leftHandler);
 	leftHandler.setSuccessor(upHandler);
