@@ -1,0 +1,13 @@
+{
+  "name": "Batman",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "heroku-init": "heroku git:remote -a cmpe202-batman",
+    "deploy": "cd .. && git subtree push --prefix app heroku master"
+  }
+}
