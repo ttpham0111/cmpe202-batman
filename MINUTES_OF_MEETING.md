@@ -129,3 +129,18 @@
 **What are the current blockers/challenges the team is facing?**
 * Parsing and executing user commands for the character movement
 * Giving user the ability to define his/her own custom functions
+
+## Week 8 - Nov 13 - Nov 19
+**What did the team do the past week?**
+* Code integration
+* Started working on tutorial guide
+* Refined level 1 and level 2 map
+
+**What is the team going to do next week?**
+* Finalizing the game
+* Finalizing Levels and Characters
+* Deciding on level complete condition
+
+**What are the current blockers/challenges the team is facing?**
+* Refining code to be more readable.
+m
