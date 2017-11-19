@@ -213,9 +213,19 @@ function detection (player, enemy) {
     
     
     if(enemy.type === "riddler") {
-        
+        //pick one of them
+	//prototype
        alert("what is the design pattern that is used when creation of object directly is costly") ; 
-        
+	//Flyweight 
+       alert("This pattern hides the complexities of the system and provides an interface to the client using which the client can access the system.");
+        //visitor
+       alert("In this pattern, a visitor class is used which changes the executing algorithm of an element class.");
+	//Strategy
+	alert("Define a family of algorithms, encapsulate each one, and make them interchangeable. It lets the algorithm vary independently from clients that use it.");
+	 //Command
+	 alert("Encapsulate a request as an object, there by letting you parametrize clients with different requests, queue or log requests, and support undoable operation.");
+	//iterator
+	 alert("Provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.");
     }else if(type === "Freeze") {
         
         //hero freeze for 5 seconds
