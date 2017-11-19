@@ -31,3 +31,7 @@ Every person in the group is assigned the task which is placed in the Kanban car
 ### Week 7
 * We are maintaining a strong communication now to have the code integrated in the application , we are into almost last phase of the game development where all the merging is happening and in proper way.
 * We are having meet-ups for more than once a week now, strong inter-team communication is going on, and people working in the same module are in frequent contact with one another.
+
+### Week 8
+* So far, so good. We are doing some minor changes to the projectto make it abstract and encapsulate
+* We are almost to the end of the project and meeting is helping us to collaborate the data efficiently. Also the module are integrated properly without any problem.
