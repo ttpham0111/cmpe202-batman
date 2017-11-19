@@ -9,8 +9,6 @@ class MoveDownAction extends Action {
   }
 
   perform() {
-    const hero = this._hero;
-    hero.moveDown();
-    hero.body.onMoveComplete.addOnce(this._onComplete.boundDispatch);
+    return this._hero.moveDown();
   }
 }

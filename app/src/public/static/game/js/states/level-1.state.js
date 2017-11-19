@@ -26,15 +26,15 @@ Game.Level1.prototype = {
 
     this._goon1 = this._enemyFactory.create(this._enemyFactory.types.GOON, 450, 300);
 
-    // this._control = new KeyboardController({
-    //   hero: this._hero,
-    //   input: this.input.keyboard
-    // });
-
-    this._control = new EditorController({
+    this._control = new KeyboardController({
       hero: this._hero,
-      input: this._editor
+      input: this.input.keyboard
     });
+
+    // this._control = new EditorController({
+    //   hero: this._hero,
+    //   input: this._editor
+    // });
   },
 
   update: function() {

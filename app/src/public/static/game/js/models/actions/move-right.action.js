@@ -9,8 +9,6 @@ class MoveRightAction extends Action {
   }
 
   perform() {
-    const hero = this._hero;
-    hero.moveRight();
-    hero.body.onMoveComplete.addOnce(this._onComplete.boundDispatch);
+    return this._hero.moveRight();
   }
 }

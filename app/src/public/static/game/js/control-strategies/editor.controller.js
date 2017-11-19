@@ -32,17 +32,14 @@ class EditorController {
       }, []);
       if (actions.length === 0) return reject();
 
-      let i = 0;
-      function doAction() {
-        const action = actions[i];
-        if (++i < actions.length) action.onComplete.addOnce(doAction);
-        else {
-          action.onComplete.addOnce(hero.stop, hero);
-          action.onComplete.addOnce(resolve);
-        }
-        action.perform();
+      let promise = actions[0].perform();
+      for (let i = 1; i < actions.length; ++i) {
+        promise = promise.then(() => actions[i].perform())
       }
-      doAction();
+      promise.then(() => {
+        hero.stop();
+        resolve();
+      });
     });
   }
 }

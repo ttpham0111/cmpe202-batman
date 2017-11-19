@@ -9,7 +9,9 @@ class ShootAction extends Action {
   }
 
   perform() {
-    this._weapon.fire();
-    this._onComplete.dispatch();
+    return new Promise((resolve) => {
+      this._weapon.fire();
+      resolve();
+    });
   }
 }

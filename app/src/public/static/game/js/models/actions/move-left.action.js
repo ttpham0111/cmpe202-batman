@@ -9,8 +9,6 @@ class MoveLeftAction extends Action {
   }
 
   perform() {
-    const hero = this._hero;
-    hero.moveLeft();
-    hero.body.onMoveComplete.addOnce(this._onComplete.boundDispatch);
+    return this._hero.moveLeft();
   }
 }

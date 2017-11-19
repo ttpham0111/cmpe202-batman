@@ -137,27 +137,39 @@ class Character extends Phaser.Sprite {
   }
 
   moveUp() {
-    this.body.moveTo(Game.SPEED / this._speed, Game.TILE_HEIGHT, Phaser.ANGLE_UP);
-    this.animations.play(ANIMATION_UP);
-    this.direction = DIRECTION_UP;
+    return new Promise((resolve) => {
+      this.body.moveTo(Game.SPEED / this._speed, Game.TILE_HEIGHT, Phaser.ANGLE_UP);
+      this.animations.play(ANIMATION_UP);
+      this.direction = DIRECTION_UP;
+      this.body.onMoveComplete.addOnce(resolve);
+    });
   }
 
   moveRight() {
-    this.body.moveTo(Game.SPEED / this._speed, Game.TILE_WIDTH, Phaser.ANGLE_RIGHT);
-    this.animations.play(ANIMATION_RIGHT);
-    this.direction = DIRECTION_RIGHT;
+    return new Promise((resolve) => {
+      this.body.moveTo(Game.SPEED / this._speed, Game.TILE_WIDTH, Phaser.ANGLE_RIGHT);
+      this.animations.play(ANIMATION_RIGHT);
+      this.direction = DIRECTION_RIGHT;
+      this.body.onMoveComplete.addOnce(resolve);
+    });
   }
 
   moveDown() {
-    this.body.moveTo(Game.SPEED / this._speed, Game.TILE_HEIGHT, Phaser.ANGLE_DOWN);
-    this.animations.play(ANIMATION_DOWN);
-    this.direction = DIRECTION_DOWN;
+    return new Promise((resolve) => {
+      this.body.moveTo(Game.SPEED / this._speed, Game.TILE_HEIGHT, Phaser.ANGLE_DOWN);
+      this.animations.play(ANIMATION_DOWN);
+      this.direction = DIRECTION_DOWN;
+      this.body.onMoveComplete.addOnce(resolve);
+    });
   }
 
   moveLeft() {
-    this.body.moveTo(Game.SPEED / this._speed, Game.TILE_WIDTH, Phaser.ANGLE_LEFT);
-    this.animations.play(ANIMATION_LEFT);
-    this.direction = DIRECTION_LEFT;
+    return new Promise((resolve) => {
+      this.body.moveTo(Game.SPEED / this._speed, Game.TILE_WIDTH, Phaser.ANGLE_LEFT);
+      this.animations.play(ANIMATION_LEFT);
+      this.direction = DIRECTION_LEFT;
+      this.body.onMoveComplete.addOnce(resolve);
+    });
   }
 
   stop() {

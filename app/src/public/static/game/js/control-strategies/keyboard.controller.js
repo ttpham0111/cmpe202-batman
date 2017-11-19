@@ -21,13 +21,8 @@ class KeyboardController {
     else if (cursors.right.isDown) action = hero.getAction(MoveRightAction.name);
     else if (cursors.down.isDown) action = hero.getAction(MoveDownAction.name);
     else if (cursors.left.isDown) action = hero.getAction(MoveLeftAction.name);
-    if (!action) return;
+    return (action && action.perform()) || hero.stop();
 
-    if (!this._blockMove) {
-      this._blockMove = true;
-      action.perform();
-      action.onComplete.addOnce(() => this._blockMove = false);
-    }
   }
 
   _updateHeroAction() {
