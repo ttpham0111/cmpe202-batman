@@ -10,7 +10,7 @@ class Gun extends Equip {
   }
 
   _equipTo(hero) {
-    this._weapon.trackSprite(hero, 35, 40);
+    this._weapon.trackSprite(hero, Game.SPRITE_HERO_WIDTH / 2, Game.SPRITE_HERO_HEIGHT / 2);
     this._actions = [new ShootAction(hero, this._weapon)];
   }
 }

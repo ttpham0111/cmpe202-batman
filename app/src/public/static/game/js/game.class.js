@@ -9,6 +9,9 @@ class _Game {
     this.SPEED = 25000;
 
     this.SPRITE_HERO_KEY = 'hero';
+    this.SPRITE_HERO_WIDTH = 64;
+    this.SPRITE_HERO_HEIGHT = 64;
+
     this.SPRITE_BULLET_KEY = 'bullet';
 
     const numLevels = 2;
