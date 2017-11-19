@@ -140,7 +140,9 @@
 * Finalizing the game
 * Finalizing Levels and Characters
 * Deciding on level complete condition
+* Testing the game
+* Finalizing image selections
 
 **What are the current blockers/challenges the team is facing?**
 * Refining code to be more readable.
-m
+* Enemy interactions with the player.
