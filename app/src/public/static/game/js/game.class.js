@@ -12,6 +12,10 @@ class _Game {
     this.SPRITE_HERO_WIDTH = 64;
     this.SPRITE_HERO_HEIGHT = 64;
 
+    this.ENEMY_RIDDLER_KEY = 'riddler';
+    this.ENEMY_IVY_KEY = 'ivy';
+
+
     this.SPRITE_BULLET_KEY = 'bullet';
 
     const numLevels = 2;

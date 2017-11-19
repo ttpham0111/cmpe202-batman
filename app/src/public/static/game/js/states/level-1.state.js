@@ -24,7 +24,12 @@ Game.Level1.prototype = {
 
     new Gun(this.game).equip(this._hero);
 
-    this._goon1 = this._enemyFactory.create(this._enemyFactory.types.GOON, 450, 300);
+    this._enemies_to_kill = this.game.add.group();
+    this._goon_group = this._enemyFactory.create(this._enemyFactory.types.GOON, 450, 300,1);
+    this._riddler_group = this._enemyFactory.create(this._enemyFactory.types.RIDDLER, 200, 300,1);
+    this._enemies_to_kill.add(this._goon_group);
+   // this._enemies_to_kill.add(this._riddler_group);
+
 
     this._control = new KeyboardController({
       hero: this._hero,
@@ -41,8 +46,24 @@ Game.Level1.prototype = {
     this._control.update();
     const physics = this.physics.arcade;
     physics.collide(this._hero , this._objectsLayer, () => { this._hero.stop(); });
-    physics.collide(this._hero , this._goon1, () => { this._hero.stop(); });
+    physics.collide(this._hero , this._goon_group, () => { this._hero.stop(); });
+    physics.collide(this._hero , this._riddler_group, (hero, riddler) => { 
+      hero.stop();
+      riddler.giveRiddle();
+    });
   },
+/*
+  physics.collide(..., ..., () => {});
+  physics.collide(..., ..., function() {});
+
+  function test() {};
+
+  physics.collide(arg1, arg2, test);
+
+  function collide(.., onCollision) {
+    if (collided) onCollision(arg1, arg2[collidedWith])
+  }
+*/
 
   run: function() {
     this._control.update(true).then(() => {

@@ -13,6 +13,9 @@ Game.Preloader.prototype = {
     this.load.image(Game.level2.TILESPRITE_KEY, 'public/static/game/assets/maps/level-2/room.png', Game.WIDTH, Game.HEIGHT);
     this.load.tilemap(Game.level2.TILEMAP_KEY, 'public/static/game/assets/maps/level-2/objects.csv');
     this.load.image(Game.level2.TILESET_IMAGE_KEY, 'public/static/game/assets/maps/level-2/objects.png', Game.WIDTH, Game.HEIGHT);
+    
+    this.load.image(Game.ENEMY_RIDDLER_KEY,'public/static/game/assets/enemies/question.jpg');
+
   },
 
   create: function() {
