@@ -41,6 +41,7 @@ var score;
 var cursors;
 var enemy;
 var enemies = [];
+var health;
 
 function create() {
 
@@ -233,20 +234,23 @@ function detection (player, enemy) {
     }else if(type === "ivy"){
         
         //hero health minus 5
+	    health -= 5;
         //group of to_kill
     }else if(type === "penguin"){
         //add health but you need kill it
-	    //more functions
+	    health += 5;
+	    //more functions later
         //shoot to kill
     }else if(type === "joker"){
         // health minus 10
+	    health -= 10;
         // group of to_kill
     }else if(type === "Harley") {
         //group of to_kill
-        
+        health -=5;
     }else if(type === "scarecrow") {
         //group of to_kill
-        
+        health -=3;
     }
     
     
