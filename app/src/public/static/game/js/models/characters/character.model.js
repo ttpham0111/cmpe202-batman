@@ -15,9 +15,10 @@ class Character extends Phaser.Sprite {
 
     this._name = initialStats.name;
     this._maxHealth = initialStats.maxHealth;
-    this._currentHealth = initialStats.maxHealth;
     this._strength = initialStats.strength;
     this._speed = initialStats.speed;
+
+    this.setHealth(this._maxHealth);  // Phaser has an internal health/maxHealth (default 1/100);
   }
 
   _setDirectionFrames(up, right, down, left) {
@@ -112,22 +113,22 @@ class Character extends Phaser.Sprite {
   }
 
   faceUp() {
-    this.facing = Phaser.UP;
+    this.facing = Phaser.ANGLE_UP;
     this.stop();
   }
 
   faceRight() {
-    this.facing = Phaser.RIGHT;
+    this.facing = Phaser.ANGLE_RIGHT;
     this.stop();
   }
 
   faceDown() {
-    this.facing = Phaser.DOWN;
+    this.facing = Phaser.ANGLE_DOWN;
     this.stop();
   }
 
   faceLeft() {
-    this.facing = Phaser.LEFT;
+    this.facing = Phaser.ANGLE_LEFT;
     this.stop();
   }
 
@@ -185,5 +186,18 @@ class Character extends Phaser.Sprite {
         this.frame = this._frameDirections.left;
         break;
     }
+  }
+
+  // Because we want to set maxHealth > 100 (Phaser keeps maxHealth at 100)
+  _normalizeHealth(amount) {
+    return (amount / this._maxHealth) * this.maxHealth;
+  }
+
+  damage(amount) {
+    super.damage(this._normalizeHealth(amount));
+  }
+
+  heal(amount) {
+    super.heal(this._normalizeHealth(amount));
   }
 }
