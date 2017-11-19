@@ -24,3 +24,7 @@ We created our first draft of the class diagram which helps to solidify the arch
 
 ## Week 7
 This week we came together to integrate the various pieces we've individually worked on. The hardest part about integration is that everyone must know how to connect their working part with the rest of the application. This requires everyone to know what data is available to their components. We worked together so that we can each explain our pieces to each other.
+
+## Week 8
+We spent alot of time refactoring this week. After all of our learning and testing, we've had a mess of a code base with a ton of code debt. Refactoring helps us compile a better list of APIs and abstractions for all the objects required in our program. It gives us all a better sense of how to app will grow in the future.
+
