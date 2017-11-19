@@ -229,21 +229,23 @@ function detection (player, enemy) {
     }else if(type === "Freeze") {
         
         //hero freeze for 5 seconds
+	//group of to_kill
     }else if(type === "ivy"){
         
         //hero health minus 5
-        
+        //group of to_kill
     }else if(type === "penguin"){
-        
+        //add health but you need kill it
+	    //more functions
         //shoot to kill
     }else if(type === "joker"){
         // health minus 10
-        // shoot to kill
+        // group of to_kill
     }else if(type === "Harley") {
-        
+        //group of to_kill
         
     }else if(type === "scarecrow") {
-        
+        //group of to_kill
         
     }
     
