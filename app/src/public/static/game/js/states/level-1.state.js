@@ -1,96 +1,86 @@
 Game.Level1 = function(editor) {
-  this.showTutorial = true;
   this._editor = editor;
 };
-
-var map;
-var layer;
-var bulletsObj ; 
-var EnamyBulletsObj ; 
-var EnemyBulletTime  = 0 ; 
 
 Game.Level1.prototype = {
   init: function() {
     this.physics.startSystem(Phaser.Physics.ARCADE);
+    this._enemyFactory = new EnemyFactory(this.game);
   },
 
   create: function() {
+    this.add.tileSprite(0, 0, Game.WIDTH, Game.HEIGHT, Game.level1.TILESPRITE_KEY);
 
-    //----Changes for each level------//
-    this.add.tileSprite(0, 0, 640, 640, 'background_level_1');
-    map = this.add.tilemap('map_level_1');
-    map.addTilesetImage('tileset_level_1');
-    layer = map.createLayer(0) ;
-    layer.resizeWorld() ;
-    map.setCollisionBetween(0 , 500);
-    map.setCollision([155,135] , false) ; 
+    const tilemap = this.add.tilemap(Game.level1.TILEMAP_KEY);
+    tilemap.addTilesetImage(Game.level1.TILESET_IMAGE_KEY);
+    tilemap.setCollisionBetween(0, 500);
+    tilemap.setCollision([149, 150], false);
 
-    //----Changes End------//
+    this._objectsLayer = tilemap.createLayer(0);
+    this._objectsLayer.resizeWorld();
 
-    this.hero = new Hero(this.game, 0, 0, 'hero');
-    
-    this.bullets = new Bullets(this.game, 0, 0, 'bullet' , 'enemyBullet');
-    bulletsObj = this.bullets.getBullets() ; 
-    EnamyBulletsObj = this.bullets.getEnemyBullets() ; 
+    this._hero = new Hero(this.game, 0, 0);
+    this._hero.faceRight();
+
+    this._hero.equip(new Gun(this.game));
+
+    this._enemies_to_kill = this.game.add.group();
+    this._goon_group = this._enemyFactory.create(this._enemyFactory.types.GOON, 450, 300,1);
+    this._riddler_group = this._enemyFactory.create(this._enemyFactory.types.RIDDLER, 200, 300,1);
+    this._enemies_to_kill.add(this._goon_group);
+   // this._enemies_to_kill.add(this._riddler_group);
 
 
-
-    this.control = new KeyboardController({
-      hero: this.hero,
-      input: this.input.keyboard ,
-      bullets : bulletsObj ,
-      game : this.game
+    this._control = new KeyboardController({
+      hero: this._hero,
+      input: this.input.keyboard
     });
 
-    var enemy;
-    var enemies = [];
-    this.factory = new Factory();
-    enemies.push(this.factory.createEnemies(this.game,"ivy"));
-    enemies.push(this.factory.createEnemies(this.game,"joker"));
-    enemies.push(this.factory.createEnemies(this.game,"riddler"));
-    enemies.push(this.factory.createEnemies(this.game,"Freeze"));
-    enemies.push(this.factory.createEnemies(this.game,"scarecrow"));
-
-    //getEnemiesToKill
-    this.enemiesToKill = this.factory.getEnemiesToKill(this.game, 'enemy');
-
+    // this._control = new EditorController({
+    //   hero: this._hero,
+    //   input: this._editor
+    // });
   },
 
   update: function() {
-    this.control.update();
-    this.physics.arcade.collide(this.hero , layer);
-    this.physics.arcade.overlap(bulletsObj , this.enemiesToKill , this.handleEnemyKill  , null , this) ; 
-    this.physics.arcade.overlap(EnamyBulletsObj , this.hero , this.handleHeroKill  , null , this) ; 
+    this._control.update();
+    const physics = this.physics.arcade;
+    physics.collide(this._hero , this._objectsLayer);
 
+    physics.collide(this._hero , this._goon_group);
+    physics.collide(this._hero , this._riddler_group, (hero, riddler) => { 
+      hero.stop();
+      riddler.collidedWith(hero);
+    });
 
-    if(new Date().getSeconds() % 3 == 0){
-      this.bullets.enemyShootRight(EnamyBulletsObj , this.enemiesToKill.x+50 ,  this.enemiesToKill.y+60 , this.game.time.now )
-    }
+    this._checkComplete();
 
-    if(new Date().getSeconds() % 2 == 0){
-      this.bullets.enemyShootLeft(EnamyBulletsObj , this.enemiesToKill.x+50 ,  this.enemiesToKill.y+60 , this.game.time.now )
-    }
-    
   },
+/*
+  physics.collide(..., ..., () => {});
+  physics.collide(..., ..., function() {});
+
+  function test() {};
+
+  physics.collide(arg1, arg2, test);
+
+  function collide(.., onCollision) {
+    if (collided) onCollision(arg1, arg2[collidedWith])
+  }
+*/
 
   run: function() {
-    console.log('Running level 1...');
-    if(true){
-      console.log('Starting level 2...');
-      this.state.start(Game.states.LEVEL_2);
-    } else {
-      console.log('Game over!');
-    }
+    this._control.update(true).then(() => {
+      this._checkComplete();
+    });
   },
 
-  handleHeroKill : function(bullet , hero ){
-        hero.kill();
-        this.hero.reset(0 , 0 ) ; 
+  _checkComplete: function() {
+    if (this._complete()) this.state.start(Game.states.LEVEL_2);
   },
 
-  handleEnemyKill : function(bullet , enemy ){
-    this.factory.killEnemies(bullet , enemy ) ;
-    EnamyBulletsObj = null ; 
+  _complete: function() {
+    const epsilon = 25;
+    return (Math.abs(475 - this._hero.x) < epsilon) && (Math.abs(260 - this._hero.y) < epsilon);
   }
-
 };

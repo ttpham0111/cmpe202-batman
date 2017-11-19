@@ -2,33 +2,19 @@ Game.Preloader = function() {};
 
 Game.Preloader.prototype = {
   preload: function() {
-    this.load.spritesheet('hero', 'public/static/game/assets/hero.png', 64, 64);
-    this.load.image('bullet','public/static/game/assets/Bullet.jpg');
-    this.load.image('enemyBullet','public/static/game/assets/enemyBullet.png');
+    this.load.spritesheet(Game.SPRITE_HERO_KEY, 'public/static/game/assets/characters/hero.png', Game.SPRITE_HERO_WIDTH, Game.SPRITE_HERO_HEIGHT);
 
-    //--Assets for level 1--//
-    this.load.tilemap("map_level_1", "public/static/game/assets/Maps/level_1/Town.csv");
-  	this.load.image("tileset_level_1" , "public/static/game/assets/Maps/level_1/Town_Objects.png");
-  	this.load.image("background_level_1", "public/static/game/assets/Maps/level_1/Town_Background.png", 640, 640 );
+    this.load.spritesheet(Game.SPRITE_BULLET_KEY, 'public/static/game/assets/equips/bullets/bullet.jpg');
 
-  	//--Assets for level 2--//
-  	this.load.tilemap("map_level_2", "public/static/game/assets/Maps/level_2/Room.csv");
-  	this.load.image("tileset_level_2" , "public/static/game/assets/Maps/level_2/Room_Objects.png");
-  	this.load.image("background_level_2", "public/static/game/assets/Maps/level_2/Room_Background.png", 640, 640 );
+    this.load.image(Game.level1.TILESPRITE_KEY, 'public/static/game/assets/maps/level-1/grass.png', Game.WIDTH, Game.HEIGHT);
+    this.load.tilemap(Game.level1.TILEMAP_KEY, 'public/static/game/assets/maps/level-1/objects.csv');
+    this.load.image(Game.level1.TILESET_IMAGE_KEY, 'public/static/game/assets/maps/level-1/objects.png', Game.WIDTH, Game.HEIGHT);
 
-    //Assets for level4
-    this.load.tilemap("level_4", "public/static/game/assets/Maps/level_2/level_2/room.csv");
-    this.load.image("tileset_4" , "public/static/game/assets/Maps/level_2/level_2/room.jpg");
-
-  	//--Assets for level 3--//
-  	this.load.tilemap("map_level_3", "public/static/game/assets/Maps/level_3/Room_2.csv");
-  	this.load.image("tileset_level_3" , "public/static/game/assets/Maps/level_3/Room_2_Objects.png");
-  	this.load.image("background_level_3", "public/static/game/assets/Maps/level_3/Room_2_Background.png", 640, 640 );
-
-    this.load.image("ivy", "public/static/game/assets/enemies/ivy.png" , 32 , 32);
-    this.load.image("riddler", "public/static/game/assets/enemies/riddler.png");
-
-    this.load.image('enemy','public/static/game/assets/enemies/enemy.jpg',32 , 32)
+    this.load.image(Game.level2.TILESPRITE_KEY, 'public/static/game/assets/maps/level-2/room.png', Game.WIDTH, Game.HEIGHT);
+    this.load.tilemap(Game.level2.TILEMAP_KEY, 'public/static/game/assets/maps/level-2/objects.csv');
+    this.load.image(Game.level2.TILESET_IMAGE_KEY, 'public/static/game/assets/maps/level-2/objects.png', Game.WIDTH, Game.HEIGHT);
+    
+    this.load.image(Game.ENEMY_RIDDLER_KEY,'public/static/game/assets/enemies/question.jpg');
 
   },
 
