@@ -4,7 +4,7 @@ class Hero extends Character {
       name: 'Batman',
       maxHealth: 100,
       strength: 10,
-      speed: 100
+      speed: 1000
     };
     super(game, x, y, Game.SPRITE_HERO_KEY, group, initialStats);
 
@@ -74,6 +74,7 @@ class Hero extends Character {
         return
     }
 
+    equipment.equipTo(this);
     this._equips[location] = equipment;
     this.addActions(equipment.actions);
   }

@@ -32,10 +32,10 @@ class Equip {
     return this._actions;
   }
 
-  equip(hero) {
-    if (!this._equipped) this._equip(hero);
+  equipTo(hero) {
+    if (!this._equipped) this._equipTo(hero);
     this._equipped = true;
   }
 
-  _equip(hero) {}
+  _equipTo(hero) {}
 }

@@ -14,17 +14,14 @@ Game.Level1.prototype = {
     const tilemap = this.add.tilemap(Game.level1.TILEMAP_KEY);
     tilemap.addTilesetImage(Game.level1.TILESET_IMAGE_KEY);
     tilemap.setCollisionBetween(0, 500);
-    tilemap.setCollision([155, 135], false);
+    tilemap.setCollision([149, 150], false);
 
     this._objectsLayer = tilemap.createLayer(0);
     this._objectsLayer.resizeWorld();
 
     this._hero = new Hero(this.game, 0, 0);
     this._hero.faceRight();
-
-    new Gun(this.game).equip(this._hero);
-
-    this._goon1 = this._enemyFactory.create(this._enemyFactory.types.GOON, 450, 300);
+    this._hero.equip(new Gun(this.game));
 
     this._control = new KeyboardController({
       hero: this._hero,
@@ -41,13 +38,17 @@ Game.Level1.prototype = {
     this._control.update();
     const physics = this.physics.arcade;
     physics.collide(this._hero , this._objectsLayer, () => { this._hero.stop(); });
-    physics.collide(this._hero , this._goon1, () => { this._hero.stop(); });
+    this._checkComplete();
   },
 
   run: function() {
     this._control.update(true).then(() => {
-      if (this._complete()) this.state.start(Game.states.LEVEL_2);
+      this._checkComplete();
     });
+  },
+
+  _checkComplete: function() {
+    if (this._complete()) this.state.start(Game.states.LEVEL_2);
   },
 
   _complete: function() {

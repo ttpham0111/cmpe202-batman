@@ -2,7 +2,7 @@ Game.Preloader = function() {};
 
 Game.Preloader.prototype = {
   preload: function() {
-    this.load.spritesheet(Game.SPRITE_HERO_KEY, 'public/static/game/assets/characters/hero.png', Game.SPRITE_HERO_WIDTH, Game.SPRITE_HERO_HEIGHT);
+    this.load.spritesheet(Game.SPRITE_HERO_KEY, 'public/static/game/assets/characters/hero.png', 64, 64);
 
     this.load.spritesheet(Game.SPRITE_BULLET_KEY, 'public/static/game/assets/equips/bullets/bullet.jpg');
 
