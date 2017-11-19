@@ -1,8 +1,3 @@
-const DIRECTION_UP = 0;
-const DIRECTION_RIGHT = 1;
-const DIRECTION_DOWN = 2;
-const DIRECTION_LEFT = 3;
-
 const ANIMATION_UP = 'up';
 const ANIMATION_RIGHT = 'right';
 const ANIMATION_DOWN = 'down';
@@ -20,9 +15,10 @@ class Character extends Phaser.Sprite {
 
     this._name = initialStats.name;
     this._maxHealth = initialStats.maxHealth;
-    this._currentHealth = initialStats.maxHealth;
     this._strength = initialStats.strength;
     this._speed = initialStats.speed;
+
+    this.setHealth(this._maxHealth);  // Phaser has an internal health/maxHealth (default 1/100);
   }
 
   _setDirectionFrames(up, right, down, left) {
@@ -117,22 +113,22 @@ class Character extends Phaser.Sprite {
   }
 
   faceUp() {
-    this.direction = DIRECTION_UP;
+    this.facing = Phaser.ANGLE_UP;
     this.stop();
   }
 
   faceRight() {
-    this.direction = DIRECTION_RIGHT;
+    this.facing = Phaser.ANGLE_RIGHT;
     this.stop();
   }
 
   faceDown() {
-    this.direction = DIRECTION_DOWN;
+    this.facing = Phaser.ANGLE_DOWN;
     this.stop();
   }
 
   faceLeft() {
-    this.direction = DIRECTION_LEFT;
+    this.facing = Phaser.ANGLE_LEFT;
     this.stop();
   }
 
@@ -140,7 +136,7 @@ class Character extends Phaser.Sprite {
     return new Promise((resolve) => {
       this.body.moveTo(Game.SPEED / this._speed, Game.TILE_HEIGHT, Phaser.ANGLE_UP);
       this.animations.play(ANIMATION_UP);
-      this.direction = DIRECTION_UP;
+      this.facing = Phaser.ANGLE_UP;
       this.body.onMoveComplete.addOnce(resolve);
     });
   }
@@ -149,7 +145,7 @@ class Character extends Phaser.Sprite {
     return new Promise((resolve) => {
       this.body.moveTo(Game.SPEED / this._speed, Game.TILE_WIDTH, Phaser.ANGLE_RIGHT);
       this.animations.play(ANIMATION_RIGHT);
-      this.direction = DIRECTION_RIGHT;
+      this.facing = Phaser.ANGLE_RIGHT;
       this.body.onMoveComplete.addOnce(resolve);
     });
   }
@@ -158,7 +154,7 @@ class Character extends Phaser.Sprite {
     return new Promise((resolve) => {
       this.body.moveTo(Game.SPEED / this._speed, Game.TILE_HEIGHT, Phaser.ANGLE_DOWN);
       this.animations.play(ANIMATION_DOWN);
-      this.direction = DIRECTION_DOWN;
+      this.facing = Phaser.ANGLE_DOWN;
       this.body.onMoveComplete.addOnce(resolve);
     });
   }
@@ -167,7 +163,7 @@ class Character extends Phaser.Sprite {
     return new Promise((resolve) => {
       this.body.moveTo(Game.SPEED / this._speed, Game.TILE_WIDTH, Phaser.ANGLE_LEFT);
       this.animations.play(ANIMATION_LEFT);
-      this.direction = DIRECTION_LEFT;
+      this.facing = Phaser.ANGLE_LEFT;
       this.body.onMoveComplete.addOnce(resolve);
     });
   }
@@ -176,19 +172,32 @@ class Character extends Phaser.Sprite {
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
     this.animations.stop();
-    switch(this.direction) {
-      case DIRECTION_UP:
+    switch(this.facing) {
+      case Phaser.ANGLE_UP:
         this.frame = this._frameDirections.up;
         break;
-      case DIRECTION_RIGHT:
+      case Phaser.ANGLE_RIGHT:
         this.frame = this._frameDirections.right;
         break;
-      case DIRECTION_DOWN:
+      case Phaser.ANGLE_DOWN:
         this.frame = this._frameDirections.down;
         break;
-      case DIRECTION_LEFT:
+      case Phaser.ANGLE_LEFT:
         this.frame = this._frameDirections.left;
         break;
     }
+  }
+
+  // Because we want to set maxHealth > 100 (Phaser keeps maxHealth at 100)
+  _normalizeHealth(amount) {
+    return (amount / this._maxHealth) * this.maxHealth;
+  }
+
+  damage(amount) {
+    super.damage(this._normalizeHealth(amount));
+  }
+
+  heal(amount) {
+    super.heal(this._normalizeHealth(amount));
   }
 }

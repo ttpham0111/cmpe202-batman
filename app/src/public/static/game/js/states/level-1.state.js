@@ -14,7 +14,7 @@ Game.Level1.prototype = {
     const tilemap = this.add.tilemap(Game.level1.TILEMAP_KEY);
     tilemap.addTilesetImage(Game.level1.TILESET_IMAGE_KEY);
     tilemap.setCollisionBetween(0, 500);
-    tilemap.setCollision([155, 135], false);
+    tilemap.setCollision([149, 150], false);
 
     this._objectsLayer = tilemap.createLayer(0);
     this._objectsLayer.resizeWorld();
@@ -22,7 +22,7 @@ Game.Level1.prototype = {
     this._hero = new Hero(this.game, 0, 0);
     this._hero.faceRight();
 
-    new Gun(this.game).equip(this._hero);
+    this._hero.equip(new Gun(this.game));
 
     this._enemies_to_kill = this.game.add.group();
     this._goon_group = this._enemyFactory.create(this._enemyFactory.types.GOON, 450, 300,1);
@@ -45,12 +45,16 @@ Game.Level1.prototype = {
   update: function() {
     this._control.update();
     const physics = this.physics.arcade;
-    physics.collide(this._hero , this._objectsLayer, () => { this._hero.stop(); });
-    physics.collide(this._hero , this._goon_group, () => { this._hero.stop(); });
+    physics.collide(this._hero , this._objectsLayer);
+
+    physics.collide(this._hero , this._goon_group);
     physics.collide(this._hero , this._riddler_group, (hero, riddler) => { 
       hero.stop();
-      riddler.giveRiddle();
+      riddler.collidedWith(hero);
     });
+
+    this._checkComplete();
+
   },
 /*
   physics.collide(..., ..., () => {});
@@ -67,8 +71,12 @@ Game.Level1.prototype = {
 
   run: function() {
     this._control.update(true).then(() => {
-      if (this._complete()) this.state.start(Game.states.LEVEL_2);
+      this._checkComplete();
     });
+  },
+
+  _checkComplete: function() {
+    if (this._complete()) this.state.start(Game.states.LEVEL_2);
   },
 
   _complete: function() {

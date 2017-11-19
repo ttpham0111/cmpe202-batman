@@ -1,4 +1,4 @@
-class Goon extends Character {
+class Goon extends Enemy {
   constructor(game, x, y, group, initialStats) {
     initialStats = initialStats || {
       name: 'Goon',
