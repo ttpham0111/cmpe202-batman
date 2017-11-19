@@ -38,8 +38,8 @@ Game.Level2.prototype = {
   update: function() {
     this._control.update();
     const physics = this.physics.arcade;
-    physics.collide(this._hero , this._objectsLayer, () => { this._hero.stop(); });
-    physics.collide(this._hero , this._goon1, () => { this._hero.stop(); });
+    physics.collide(this._hero , this._objectsLayer);
+    physics.collide(this._hero , this._goon1);
 
     this._checkComplete();
   },
@@ -55,7 +55,6 @@ Game.Level2.prototype = {
   },
 
   _complete: function() {
-    const epsilon = 25;
-    return (Math.abs(475 - this._hero.x) < epsilon) && (Math.abs(260 - this._hero.y) < epsilon);
+    return false;
   }
 };
