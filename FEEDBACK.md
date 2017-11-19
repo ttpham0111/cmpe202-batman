@@ -39,3 +39,8 @@
 *  We also discussed that, whenever we want to push code to the master branch, we should first create a new branch and commit the code there, that way, we can request other teammates to review and approve. Once it is approved, only then we merge to master branch. By doing this, we will not have issues caused by changing our codes by mistake, or bringing unnecessary bugs to our project. We discussed and tried this method in the meeting, it worked well and we decided to adopt this method in the future for our project.  
 
 * Taking feedback in the above ways really help us forming an organized and professional way in developing as a team.
+
+## Week 8 
+* In the last week, we discussed about the final things we need to do before we submit our project. We talked that we want to add a more simple level so that the game is easier for the user to begin with. We are going to add that level as our final step. We also discussed that we should add a few more enemy types so that the game will be more fun. Lastly we discussed that our code was messy so we decided to refactor it and make it more readable.
+
+* In the last eight weeks, we constantly get feedback from our team meetings and also group message discussions. Everyone was contributing to give feedbacks. They were very helpful in making the project better and also in doing work more efficiently.
