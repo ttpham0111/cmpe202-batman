@@ -1,6 +1,6 @@
 Vue.component('bw-game-screen', {
   template: `
-    <div ref="game"></div>
+    <div ref="game" id="game-screen"></div>
   `,
 
   model: {
@@ -32,6 +32,13 @@ Vue.component('bw-game-screen', {
       // game.state.add(Game.states.LEVEL_3, new Game.Level3(editor));
 
       game.state.start(Game.states.BOOT);
+
+      //tutorial
+      game.state.onStateChange.add((stateKey) => {
+        const state = game.state.states[stateKey];
+        if (state.showTutorial) this.$emit('show-tutorial');
+        this.$emit('change', state);
+      });
     });
   }
 });

@@ -8,21 +8,25 @@ Vue.component('bw-app', {
         
         <b-col cols="7">
           <bw-game-screen class="h-100"
-                          v-model="currentState" :editor="editor"></bw-game-screen>
+                          v-model="currentState" :editor="editor"
+                          @show-tutorial="showTutorial = true"></bw-game-screen>
         </b-col>
       </b-row>
+      <todo-tutorial v-if="showTutorial" :stateKey="currentState.key"></todo-tutorial>
     </b-container>
   `,
 
   data: function() {
     return {
       currentState: null,
-      editor: null
+      editor: null,
+      showTutorial: false
     };
   },
 
   methods: {
     runCode: function() {
+      this.showTutorial = false;
       this.currentState.run();
     }
   }
