@@ -1,5 +1,6 @@
 Game.Level1 = function(editor) {
   this._editor = editor;
+  this.showTutorial = true;
 };
 
 Game.Level1.prototype = {

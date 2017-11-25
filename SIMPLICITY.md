@@ -26,3 +26,6 @@
 ### Week #7
 * Implementing the final solution of the game was creating a blocker for us in the development, so we decided to start with simple steps then adding more features one by one. This won't block the progress of other team members.
 * Starting with the simplest level with the whole in picture in mind, helps in progressing with minimal or negligible blocker items.
+
+### Week #8
+* Most of the time in this week was spent on refactoring the integrated code. The seperate modules implemented by each team member were then combined and refactored in a way so that it will be simple to maintain the code for future development. This keeps the application well maintainable.

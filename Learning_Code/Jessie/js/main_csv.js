@@ -41,6 +41,7 @@ var score;
 var cursors;
 var enemy;
 var enemies = [];
+var health;
 
 function create() {
 
@@ -213,28 +214,43 @@ function detection (player, enemy) {
     
     
     if(enemy.type === "riddler") {
-        
+        //pick one of them
+	//prototype
        alert("what is the design pattern that is used when creation of object directly is costly") ; 
-        
+	//Flyweight 
+       alert("This pattern hides the complexities of the system and provides an interface to the client using which the client can access the system.");
+        //visitor
+       alert("In this pattern, a visitor class is used which changes the executing algorithm of an element class.");
+	//Strategy
+	alert("Define a family of algorithms, encapsulate each one, and make them interchangeable. It lets the algorithm vary independently from clients that use it.");
+	 //Command
+	 alert("Encapsulate a request as an object, there by letting you parametrize clients with different requests, queue or log requests, and support undoable operation.");
+	//iterator
+	 alert("Provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.");
     }else if(type === "Freeze") {
         
         //hero freeze for 5 seconds
+	//group of to_kill
     }else if(type === "ivy"){
         
         //hero health minus 5
-        
+	    health -= 5;
+        //group of to_kill
     }else if(type === "penguin"){
-        
+        //add health but you need kill it
+	    health += 5;
+	    //more functions later
         //shoot to kill
     }else if(type === "joker"){
         // health minus 10
-        // shoot to kill
+	    health -= 10;
+        // group of to_kill
     }else if(type === "Harley") {
-        
-        
+        //group of to_kill
+        health -=5;
     }else if(type === "scarecrow") {
-        
-        
+        //group of to_kill
+        health -=3;
     }
     
     

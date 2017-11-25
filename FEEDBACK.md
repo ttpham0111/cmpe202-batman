@@ -41,6 +41,6 @@
 * Taking feedback in the above ways really help us forming an organized and professional way in developing as a team.
 
 ## Week 8 
-* In the last week, we discussed about the final things we need to do before we submit our project. We talked that we want to add a more simple level so that the game is easier for the user to begin with. We are going to add that level as our final step. We also discussed that we should add a few more enemy types so that the game will be more fun. Lastly we discussed that our code was messy so we decided to refactor it and make it more readable.
+* In the last week, we discussed about the final things we need to do before we submit our project. We talked that we want to add a more simple level so that the game is easier for the user to begin with. We are going to add that level as well as provide more tutorials for the user to learn how to play our game. We also discussed that we should add a few more enemy types so that the game will be more fun. Lastly we discussed that our code was messy so we decided to refactor it and make it more readable.
 
-* In the last eight weeks, we constantly get feedback from our team meetings and also group message discussions. Everyone was contributing to give feedbacks. They were very helpful in making the project better and also in doing work more efficiently.
+* In the last eight weeks, we constantly get feedback from our team meetings and also from group message discussions. Everyone was contributing to giving feedbacks. They were very helpful in making the project better and also in doing work more efficiently.

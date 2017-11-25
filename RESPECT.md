@@ -32,3 +32,6 @@
 * In the final few weeks, we are integrating our codes in the final project area.
 * We are working on different branches to avoid conflicting codes and hampering others codes.
 
+### Week #8
+* In the last week, we are finalizing all the codes developed by everyone.
+* We are deciding on the deliverables and started preparing the presentation.
