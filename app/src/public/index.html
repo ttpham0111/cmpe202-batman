@@ -3,28 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="public/static/images/favicon.ico">
+    <link rel="icon" href="public/favicon.ico">
 
-    <title>Batman</title>
+    <title>The Legend of Zelda: The Dark Knight Rises</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 
     <!-- Bootstrap Vue -->
-    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@1.0.2/dist/bootstrap-vue.css">
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@1.2/dist/bootstrap-vue.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- CodeMirror -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/codemirror.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/theme/blackboard.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/theme/tomorrow-night-bright.min.css">
 
     <!------------
      - Components -
      ------------->
+    <link rel="stylesheet" href="public/components/app.component.css">
 
-    <!-- Tutorial -->
     <link rel="stylesheet" href="public/components/tutorial/tutorial.component.css">
 
     <!-- Custom -->
@@ -32,15 +32,15 @@
   </head>
   <body>
     <div id="app" class="h-100">
-      <bw-app class="h-100"></bw-app>
+      <z-app class="h-100"></z-app>
     </div>
 
     <!-- Vue JS -->
-    <script src="//unpkg.com/vue@2.5.3/dist/vue.min.js"></script>
+    <script src="//unpkg.com/vue@2.5.8/dist/vue.min.js"></script>
 
     <!-- Vue Bootstrap -->
     <script src="//unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
-    <script src="//unpkg.com/bootstrap-vue@1.0.2/dist/bootstrap-vue.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@1.2/dist/bootstrap-vue.js"></script>
 
     <!-- Vue Router -->
     <script src="//unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
@@ -50,7 +50,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.31.0/mode/javascript/javascript.min.js"></script>
 
     <!-- Phaser -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.1/phaser.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.2/phaser.min.js"></script>
 
     <!------------
      - Components -
@@ -60,11 +60,10 @@
     <!-- Editor -->
     <script src="public/components/editor/editor.component.js"></script>
 
-    <!-- Game -->
-    <script src="public/components/game/game.component.js"></script>
-
     <!-- Tutorial -->
     <script src="public/components/tutorial/tutorial.component.js"></script>
+    <script src="public/components/tutorial/steps/tutorial.state.js"></script>
+    <script src="public/components/tutorial/steps/tutorial-1.state.js"></script>
 
     <!-- Router -->
     <script src="public/router.js"></script>
@@ -72,37 +71,47 @@
     <!------
      - Game -
      ------->
-    <script src="public/static/game/js/game.class.js"></script>
+    <script src="public/game/game.class.js"></script>
 
-    <script src="public/static/game/js/control-strategies/keyboard.controller.js"></script>
-    <script src="public/static/game/js/control-strategies/editor.controller.js"></script>
+    <!-- Data -->
+    <script src="public/game/data/constants.js"></script>
 
-    <!-- Actions -->
-    <script src="public/static/game/js/models/actions/action.abstract.js"></script>
-    <script src="public/static/game/js/models/actions/move-up.action.js"></script>
-    <script src="public/static/game/js/models/actions/move-right.action.js"></script>
-    <script src="public/static/game/js/models/actions/move-down.action.js"></script>
-    <script src="public/static/game/js/models/actions/move-left.action.js"></script>
-    <script src="public/static/game/js/models/actions/shoot.action.js"></script>
-
-    <!-- Equips -->
-    <script src="public/static/game/js/models/equips/equip.abstract.js"></script>
-    <script src="public/static/game/js/models/equips/guns.model.js"></script>
-
-    <!-- Models -->
-    <script src="public/static/game/js/models/characters/character.model.js"></script>
-    <script src="public/static/game/js/models/characters/hero.model.js"></script>
-
-    <script src="public/static/game/js/models/characters/enemies/enemy.abstract.js"></script>
-    <script src="public/static/game/js/models/characters/enemies/enemy.factory.js"></script>
-    <script src="public/static/game/js/models/characters/enemies/goons.model.js"></script>
-    <script src="public/static/game/js/models/characters/enemies/riddler.model.js"></script>
+    <!-- Controls -->
+    <script src="public/game/controls/controller.abstract.js"></script>
+    <script src="public/game/controls/editor.control.js"></script>
+    <script src="public/game/controls/keyboard.control.js"></script>
 
     <!-- States -->
-    <script src="public/static/game/js/states/boot.state.js"></script>
-    <script src="public/static/game/js/states/preloader.state.js"></script>
-    <script src="public/static/game/js/states/level-1.state.js"></script>
-    <script src="public/static/game/js/states/level-2.state.js"></script>
+    <script src="public/game/states/boot.state.js"></script>
+    <script src="public/game/states/preloader.state.js"></script>
+    <script src="public/game/states/intro.state.js"></script>
+    <script src="public/game/states/main-menu.state.js"></script>
+    <script src="public/game/states/level.state.js"></script>
+    <script src="public/game/states/game-over.state.js"></script>
+
+    <!-- Levels -->
+    <script src="public/game/states/level-1.state.js"></script>
+    <script src="public/game/states/level-2.state.js"></script>
+
+    <!-- Objectives -->
+    <script src="public/game/models/objectives/objective.model.js"></script>
+
+    <!-- Player -->
+    <script src="public/game/models/characters/character.model.js"></script>
+    <script src="public/game/models/characters/player.model.js"></script>
+
+    <!-- Enemies -->
+    <script src="public/game/models/characters/enemies/enemy.factory.js"></script>
+    <script src="public/game/models/characters/enemies/enemy.abstract.js"></script>
+    <script src="public/game/models/characters/enemies/chuchu.model.js"></script>
+
+    <!-- Actions -->
+    <script src="public/game/models/actions/action.abstract.js"></script>
+    <script src="public/game/models/actions/attack.action.js"></script>
+    <script src="public/game/models/actions/move-down.action.js"></script>
+    <script src="public/game/models/actions/move-left.action.js"></script>
+    <script src="public/game/models/actions/move-right.action.js"></script>
+    <script src="public/game/models/actions/move-up.action.js"></script>
 
     <script>
       new Vue({

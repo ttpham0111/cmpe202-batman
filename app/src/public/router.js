@@ -5,7 +5,7 @@ const router = new VueRouter({
     {
       name: 'index',
       path: '/',
-      component: Vue.component('todo-index')
+      component: Vue.component('z-index')
     }
   ]
 });

@@ -1,33 +1,39 @@
-Vue.component('bw-editor', {
+Vue.component('z-editor', {
   template: `
-    <div>
-      <div class="h-75" ref="editor" id="editor-screen"></div>
-      <b-btn @click="$emit('run')" class="rounded-0" block id="run-btn">Run</b-btn>
-    </div>
+    <div ref="editor"></div>
   `,
 
-  model: {
-    prop: 'editor',
-    event: 'init'
-  },
-
   props: {
-    editor: Object
+    value: String,
+    levelText: String
   },
 
   data: function() {
     return {
+      editor: null,
       editorOptions: {
         mode: 'javascript',
-        theme: 'blackboard',
+        theme: 'tomorrow-night-bright',
         lineNumbers: true
       }
     };
   },
 
+  watch: {
+    levelText: function(value) {
+      this.editor.setValue(value);
+    }
+  },
+
   mounted: function() {
     const editor = CodeMirror(this.$refs.editor, this.editorOptions);
     editor.setSize(null, '100%');
-    this.$emit('init', editor);
-  }
+    editor.setValue(this.value || this.levelText);
+
+    editor.on('change', (editor) => {
+      this.$emit('input', editor.getValue());
+    });
+
+    this.editor = editor;
+  },
 });

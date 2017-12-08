@@ -1,102 +1,92 @@
-Vue.component('todo-tutorial', {
+Vue.component('z-tutorial', {
   template: `
-    <div id="tutorial">
-      <b-modal ref="modal" :class="modalClass" size="sm"
-              no-close-on-esc no-close-on-backdrop no-fade
-              hide-header hide-footer>
-              <p>{{modalText}}</p>
-              <div class="text-right">
-                <button @click="onNext">Next</button>
-              </div>
+    <div>
+      <b-modal ref="modal" :class="currentStep.modalClass" size="sm"
+               no-close-on-esc no-close-on-backdrop no-fade
+               hide-header hide-footer>
+        <p>{{ currentStep.modalText }}</p>
+        <div class="text-right">
+          <button @click="onNext">Next</button>
+        </div>
       </b-modal>
-      <b-tooltip ref="tooltip" triggers="manual" :placement="tooltipPlacement"
-                 :target="currentTarget" container="tutorial">
-        <img :class="tooltipClass" :src="tooltipSrc" />
+      <b-tooltip ref="tooltip" triggers="manual" :placement="currentStep.pointerPlacement"
+        :target="currentStep.pointerTarget" container="tutorial">
+        <img :class="'animated-' + currentStep.pointerDirection + '-arrow'"
+             :src="'public/images/tutorial/arrow-' + currentStep.pointerDirection + '.png'" />
       </b-tooltip>
     </div>
   `,
 
   props: {
-    stateKey: Object
+    level: String
   },
 
   data: function() {
+    const tutorials = {};
+    tutorials[Constants.STATES.LEVEL_PREFIX + 1] = Tutorial1Step1;
+
+    const noTutorialState = new NoTutorialState(this);
     return {
-      modalText: '',
-      modalClass: '',
-      currentTarget: '',
-      tooltipPlacement: '',
-      tooltipSrc: '',
-      tooltipClass: '',
-      currentTutorialStep: 0,
-      tooltipRef:null
+      tutorials: tutorials,
+      noTutorialState: noTutorialState,
+      currentStep: noTutorialState
     };
   },
 
+  computed: {
+    firstStep: function() {
+      if (this.tutorials[this.level]) return new this.tutorials[this.level](this);
+      else return this.noTutorialState;
+    }
+  },
+
+  watch: {
+    level: function() {
+      this.currentStep.end();
+      this.currentStep = this.firstStep;
+      this.play();
+    }
+  },
+
   mounted: function() {
-    this.currentTutorialStep = 0;
-    this.modalText = tutorials[this.stateKey][this.currentTutorialStep].modalText;
-    this.modalClass = tutorials[this.stateKey][this.currentTutorialStep].modalClass;
-    this.$refs.modal.show();
-    this.currentTarget = tutorials[this.stateKey][this.currentTutorialStep].currentTarget;
-    this.tooltipPlacement = tutorials[this.stateKey][this.currentTutorialStep].tooltipPlacement;
-    this.tooltipSrc = tutorials[this.stateKey][this.currentTutorialStep].tooltipSrc;
-    this.tooltipClass = tutorials[this.stateKey][this.currentTutorialStep].tooltipClass;
-    this.$nextTick(() => {
-      this.tooltipRef = this.$refs.tooltip.createToolpop();
-      this.tooltipRef.show();
-    });
+    this.currentStep = this.firstStep;
+    this.play();
   },
 
   methods: {
-    onNext: function(){
-      this.currentTutorialStep++;
-      if(this.currentTutorialStep < tutorials[this.stateKey].length){
-        this.modalText = tutorials[this.stateKey][this.currentTutorialStep].modalText;
-        this.modalClass = tutorials[this.stateKey][this.currentTutorialStep].modalClass;
-        this.$refs.modal.show();
-        this.currentTarget = tutorials[this.stateKey][this.currentTutorialStep].currentTarget;
-        this.tooltipPlacement = tutorials[this.stateKey][this.currentTutorialStep].tooltipPlacement;
-        this.tooltipSrc = tutorials[this.stateKey][this.currentTutorialStep].tooltipSrc;
-        this.tooltipClass = tutorials[this.stateKey][this.currentTutorialStep].tooltipClass;
-        this.$nextTick(() => {
-          this.tooltipRef = this.$refs.tooltip.createToolpop();
-          this.tooltipRef.show();
-        });
-      } else {
-        this.$refs.modal.hide();
-        this.tooltipRef.hide();
+    createPointer: function() {
+      return this.$refs.tooltip.createToolpop();
+    },
+
+    showModal: function() {
+      this.$refs.modal.show();
+    },
+
+    hideModal: function() {
+      this.$refs.modal.hide();
+    },
+
+    play: function() {
+      this.$nextTick(() => {
+        this.currentStep.play();
+      });
+    },
+
+    onNext: function() {
+      this.currentStep.next();
+    },
+
+    next: function(nextStep) {
+      this.currentStep.end();
+
+      if (nextStep) {
+
+        // Pointer takes a while to be destroyed...
+        setTimeout(() => {
+          this.currentStep = new nextStep(this);
+          this.play();
+        }, 250);
       }
     }
   }
-
 });
-
-var tutorials = {
-  "level-1":[
-    {
-      modalText:"This is the game screen",
-      modalClass:"left-aligned-modal",
-      currentTarget:"game-screen",
-      tooltipPlacement:"left",
-      tooltipSrc:"public/static/game/assets/tutorial_arrows/right.png",
-      tooltipClass:"animated-right-arrow"
-    },
-    {
-      modalText:"This is the code editor screen",
-      modalClass:"right-aligned-modal",
-      currentTarget:"editor-screen",
-      tooltipPlacement:"right",
-      tooltipSrc:"public/static/game/assets/tutorial_arrows/left.png",
-      tooltipClass:"animated-left-arrow"
-    },
-    {
-      modalText:"Press 'Run' to execute the code",
-      modalClass:"right-aligned-modal",
-      currentTarget:"run-btn",
-      tooltipPlacement:"top",
-      tooltipSrc:"public/static/game/assets/tutorial_arrows/down.jpg",
-      tooltipClass:"animated-down-arrow"
-    }
-  ]
-}

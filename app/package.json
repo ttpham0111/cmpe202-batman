@@ -1,5 +1,5 @@
 {
-  "name": "Batman",
+  "name": "the-legend-of-zelda-dark-knight-rises",
   "version": "1.0.0",
   "main": "src/server.js",
   "dependencies": {
@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "heroku-init": "heroku git:remote -a cmpe202-batman",
+    "heroku-init": "heroku git:remote -a LoZ-DKR",
     "deploy": "cd .. && git subtree push --prefix app heroku master"
   }
 }

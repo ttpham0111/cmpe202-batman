@@ -1,0 +1,23 @@
+#logo-wrapper {
+  min-height: 8em;
+}
+#logo {
+  max-height: 12em;
+}
+#logo-sm {
+  max-height: 6em;
+}
+
+#btn-run {
+  background-color: #b9a066;
+}
+
+.shrink-fade-enter-active, .shrink-fade-leave-active {
+  max-height: 100em;
+  transition: all .5s ease-out;
+}
+.shrink-fade-enter, .shrink-fade-leave-to {
+  max-height: 6em;
+  opacity: 0;
+  transform: scale(0.3) translateY(5em);
+}

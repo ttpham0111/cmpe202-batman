@@ -1,33 +1,83 @@
-Vue.component('bw-app', {
+Vue.component('z-app', {
   template: `
     <b-container fluid>
-      <b-row class="h-100 p-3">
-        <b-col cols="5">
-          <bw-editor v-model="editor" class="h-100" @run="runCode"></bw-editor>
-        </b-col>
-        
-        <b-col cols="7">
-          <bw-game-screen class="h-100"
-                          v-model="currentState" :editor="editor"
-                          @show-tutorial="showTutorial = true"></bw-game-screen>
-        </b-col>
-      </b-row>
-      <todo-tutorial v-if="showTutorial" :stateKey="currentState.key"></todo-tutorial>
+      <z-tutorial v-if="showTutorial" id="tutorial" ref="tutorial" :level="currentLevel"></z-tutorial>
+    
+      <b-container class="h-100 d-flex flex-column pb-5">
+        <b-row id="logo-wrapper" class="text-center py-3">
+          <transition name="shrink-fade" mode="out-in">
+            <div v-if="!gameStarted" key="logo" class="w-100">
+              <img id="logo" class="img-fluid" src="public/images/logo.png">
+            </div>
+            <div v-else key="logo-sm" class="w-100">
+              <img id="logo-sm" class="img-fluid" src="public/images/logo-sm.png">
+            </div>
+          </transition>
+        </b-row>
+      
+        <b-row class="flex-fill">
+          <b-col v-if="gameStarted" class="d-flex flex-column">
+            <b-navbar type="dark" variant="dark">
+              <b-navbar-nav class="ml-auto">
+                <b-nav-form>
+                  <b-form-checkbox v-model="showTutorial" class="text-light">
+                    &nbsp;Tutorial
+                  </b-form-checkbox>
+                
+                  <b-form-checkbox @change="toggleInput" class="text-light">
+                    &nbsp;Keyboard
+                  </b-form-checkbox>
+                </b-nav-form>
+              </b-navbar-nav>
+            </b-navbar>
+          
+            <z-editor id="editor" class="flex-fill border border-top-0 border-bottom-0 border-dark"
+                      v-model="editorText" :level-text="levelText"></z-editor>
+
+            <b-btn id="btn-run" class="rounded-0" block
+                   @click="onRun" >Run</b-btn>
+          </b-col>
+    
+          <b-col id="game-screen" class="d-flex justify-content-center" ref="game"></b-col>
+        </b-row>
+      </b-container>
     </b-container>
   `,
 
   data: function() {
     return {
-      currentState: null,
-      editor: null,
+      game: null,
+      editorText: '',
+      levelText: '',
+      gameStarted: false,
+      currentLevel: '',
       showTutorial: false
     };
   },
 
+  mounted: function() {
+    const gameEl = this.$refs.game;
+    const game = new Game(gameEl);
+
+    game.state.onStateChange.add((stateKey) => {
+      if (stateKey === Constants.STATES.LEVEL_PREFIX + 1) this.gameStarted = true;
+      if (this.gameStarted) this.currentLevel = stateKey;
+
+      const state = this.game.state.states[stateKey];
+      this.levelText = state.editorText || '';
+    });
+
+    this.game = game;
+  },
+
   methods: {
-    runCode: function() {
-      this.showTutorial = false;
-      this.currentState.run();
+    onRun: function() {
+      const input = this.editorText || this.levelText || '';
+      this.game.state.getCurrentState().controller.update(input);
+    },
+
+    toggleInput: function() {
+      this.game.state.getCurrentState().toggleInput();
     }
   }
 });

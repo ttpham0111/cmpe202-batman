@@ -1,18 +1,8 @@
 .modal-dialog {
-  margin: 10px;
   text-align: center;
 }
-
 .modal-dialog .modal-body {
-  padding: 30px;
-}
-
-.left-aligned-modal .modal-dialog {
-  float: left;
-}
-
-.right-aligned-modal .modal-dialog {
-  float: right;
+  padding: 1.2em;
 }
 
 #tutorial .tooltip > .arrow {
@@ -40,14 +30,14 @@
 }
 
 @-webkit-keyframes animated-down-arrow {
-  0%   {top:-60px;}
-  100% {top:-90px;}
+  0%   {top: -60px;}
+  100% {top: -90px;}
 }
 
 /* Standard syntax */
 @keyframes animated-down-arrow {
-  0%   {top:-60px;}
-  100% {top:-90px;}
+  0%   {top: -60px;}
+  100% {top: -90px;}
 }
 
 .animated-left-arrow {
@@ -67,14 +57,14 @@
 }
 
 @-webkit-keyframes animated-left-arrow {
-  0%   {right: :-30px;}
-  100% {right: :-90px;}
+  0%   {right: -60px;}
+  100% {right: -90px;}
 }
 
 /* Standard syntax */
 @keyframes animated-left-arrow {
-  0%   {right:-30px;}
-  100% {right:-90px;}
+  0%   {right: -60px;}
+  100% {right: -90px;}
 }
 
 .animated-right-arrow {
@@ -94,12 +84,12 @@
 }
 
 @-webkit-keyframes animated-right-arrow {
-  0%   {left: :-60px;}
-  100% {left: :-90px;}
+  0%   {left: -30px;}
+  100% {left: -60px;}
 }
 
 /* Standard syntax */
 @keyframes animated-right-arrow {
-  0%   {left: :-60px;}
-  100% {left:-90px;}
+  0%   {left: -30px;}
+  100% {left: -60px;}
 }
