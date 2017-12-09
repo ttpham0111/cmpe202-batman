@@ -10,7 +10,7 @@ class KeyboardController extends Controller {
   update() {
     super.update();
 
-    this._updatePlayerMovement();
+    if (!this._player.isDisabled) this._updatePlayerMovement();
     this._updatePlayerAction();
   }
 

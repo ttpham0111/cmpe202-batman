@@ -3,14 +3,12 @@ class AttackAction extends Action {
     return 'attack';
   }
 
-  constructor(player, weapon) {
+  constructor(weapon) {
     super(AttackAction.name);
-    this._player = player;
     this._weapon = weapon;
   }
 
   perform() {
-    this._weapon.fireAngle = this._player.facing;
-    this._weapon.fire();
+    this._weapon.attack();
   }
 }

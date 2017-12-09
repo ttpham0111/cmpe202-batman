@@ -20,8 +20,7 @@ moveDown();`;
     super.create();
 
     this.player.scale.set(1.25);
-    this.player.facing = Phaser.ANGLE_DOWN;
-    this.player.updateAnimation();
+    this.player.faceDown();
 
     this.objectives.push(new Objective('Get inside the house'));
   }
@@ -33,19 +32,12 @@ moveDown();`;
   }
 
   _loadMap() {
-    const map = this.game.add.tilemap(Constants.LEVEL_PREFIX + 1);
+    const map = this.game.add.tilemap(Constants.STATES.LEVEL_PREFIX + 1);
     map.addTilesetImage(Constants.ASSET_KEYS.TILESET_IMAGE_FIELD_1_DARK);
 
     map.createLayer('ground1').resizeWorld();
     ['ground2', 'wall1', 'wall2'].forEach(layer => map.createLayer(layer));
 
     return map;
-  }
-
-  _loadEnemies() {
-    const enemies = this.add.group();
-    enemies.add(this.enemyFactory.create(EnemyFactory.TYPES.CHUCHU_GREEN, 170, 128));
-    enemies.add(this.enemyFactory.create(EnemyFactory.TYPES.CHUCHU_BLUE, 160, 164));
-    return enemies;
   }
 }

@@ -14,7 +14,7 @@ class MainMenuState extends Phaser.State {
 
     const overlay = this.add.sprite(centerX + 4, centerY, MainMenuState.ASSETS.OVERLAY);
     overlay.anchor.setTo(.5, .5);
-    overlay.alpha = 0.3;
+    overlay.alpha = .5;
     this.add.tween(overlay).to({ alpha: 0.1 }, 5e3, undefined, true, undefined, -1, true);
     overlay.animations.add('default', [1, 2, 3, 4], .7, true);
     overlay.animations.play('default');

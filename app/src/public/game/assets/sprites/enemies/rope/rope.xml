@@ -1,0 +1,14 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="rope_walk_back_0.png" x="23" y="32" width="14" height="14"/>
+	<SubTexture name="rope_walk_back_1.png" x="0" y="96" width="15" height="16"/>
+	<SubTexture name="rope_walk_back_2.png" x="17" y="98" width="14" height="16"/>
+	<SubTexture name="rope_walk_back_3.png" x="26" y="0" width="14" height="16"/>
+	<SubTexture name="rope_walk_front_0.png" x="18" y="49" width="14" height="15"/>
+	<SubTexture name="rope_walk_front_1.png" x="0" y="49" width="16" height="13"/>
+	<SubTexture name="rope_walk_front_2.png" x="0" y="64" width="16" height="14"/>
+	<SubTexture name="rope_walk_front_3.png" x="0" y="80" width="15" height="14"/>
+	<SubTexture name="rope_walk_side_0.png" x="17" y="80" width="15" height="16"/>
+	<SubTexture name="rope_walk_side_1.png" x="0" y="15" width="22" height="15"/>
+	<SubTexture name="rope_walk_side_2.png" x="0" y="32" width="21" height="15"/>
+	<SubTexture name="rope_walk_side_3.png" x="0" y="0" width="24" height="13"/>
+</TextureAtlas>

@@ -12,26 +12,31 @@ class LevelState extends Phaser.State {
     this.scale.setGameSize(this.map.widthInPixels, this.map.heightInPixels);
   }
 
-  create() {
+  create(options) {
     super.create();
+
+    options = options || {};
 
     this._startPoint = this._findPoi('start');
     this._endPoint = this._findPoi('end');
+    this._endZone = this._createZone(this._endPoint);
 
     this._collisionLayer = this.map.createLayer('collision');
     this._collisionLayer.visible = false;
     this.map.setCollisionBetween(0, 500, true, 'collision');
 
     this.objectives = [];
-    this._endZone = new Phaser.Rectangle(this._endPoint.x, this._endPoint.y,
-                                         this._endPoint.width, this._endPoint.height);
 
     this.enemyFactory = new EnemyFactory(this.game);
     this.enemies = this._loadEnemies();
 
     this.player = new Player(this.game,
                              this._startPoint.properties.animationStartX,
-                             this._startPoint.properties.animationStartY);
+                             this._startPoint.properties.animationStartY,
+                             undefined, undefined, options.hasCap);
+    this.player.events.onKilled.add(() => {
+      this.state.restart();
+    });
 
     this._keyboardController = new KeyboardController(this);
     this._editorController = new EditorController(this);
@@ -48,7 +53,18 @@ class LevelState extends Phaser.State {
     }
 
     this.physics.arcade.collide(this.player, this._collisionLayer);
-    this.physics.arcade.collide(this.player, this.enemies);
+    this.physics.arcade.collide(this.enemies, this._collisionLayer);
+    this.physics.arcade.collide(this.player, this.enemies, (player, enemy) => {
+      enemy.collideWith(player);
+    });
+
+    if (this.player.hitbox) {
+      this.enemies.forEach((enemyGroup) => {
+        this.physics.arcade.collide(this.player.hitbox, enemyGroup, (hitbox, enemy) => {
+          enemy.damage(this.player.strength);
+        });
+      });
+    }
 
     if (!this._lockInput) this._controller.update();
 
@@ -58,6 +74,22 @@ class LevelState extends Phaser.State {
     else if (this._playerWon && this._playerAtEnd) {
       this._nextLevel();
     }
+  }
+
+  shutdown() {
+    super.shutdown();
+
+    this.map.destroy();
+    this._collisionLayer.destroy();
+    this.enemies.forEach(enemy => enemy.destroy());
+    this.player.destroy();
+
+    this._startPoint = null;
+    this._endPoint = null;
+    this._endZone = null;
+    this.objectives = null;
+
+    this._lockInput = false;
   }
 
   get _playerLost() {
@@ -86,6 +118,8 @@ class LevelState extends Phaser.State {
                        : this._editorController;
   }
 
+  _loadMap() {}
+
   _findPoi(name) {
     const poi = this.map.objects.poi;
     for (let i = 0; i < poi.length; i++) {
@@ -93,8 +127,12 @@ class LevelState extends Phaser.State {
     }
   }
 
+  _createZone(poi) {
+    return new Phaser.Rectangle(poi.x, poi.y, poi.width, poi.height);
+  }
+
   _loadEnemies() {
-    return this.add.group();
+    return [];
   }
 
   _animateStart() {
@@ -110,14 +148,30 @@ class LevelState extends Phaser.State {
 
   _animateMove(x, y, callback) {
     this._lockInput = true;
+    this.player.body.bounce.set(0, 0);
+
     const angle = this.physics.arcade.moveToXY(this.player, x, y, undefined, 1000);
     this.player.facing = Math.round(this.math.radToDeg(this.math.normalizeAngle(angle)) / 90) * 90;
     this.player.updateAnimation();
 
     setTimeout(() => {
+      this.player.body.bounce.set(1, 1);
       this._lockInput = false;
       callback && callback();
     }, 1000);
+  }
+
+  _animateObtainItem(item) {
+    this._lockInput = true;
+    const duration = 2000;
+
+    item.animateObtained(this.game, this.player, duration);
+    this.player.obtainItem(item);
+
+    setTimeout(() => {
+      this.player.faceDown();
+      this._lockInput = false;
+    }, duration);
   }
 
   _nextLevel() {
@@ -125,13 +179,12 @@ class LevelState extends Phaser.State {
     this._transitioning = true;
 
     this._animateEnd(() => {
-      this._transitioning = false;
-
       this.camera.fade('#000000');
       this.camera.onFadeComplete.add(() => {
         const currentLevel = this.state.current;
         const currentLevelIndex = parseInt(currentLevel.replace(Constants.STATES.LEVEL_PREFIX, ''));
         this.state.start(Constants.STATES.LEVEL_PREFIX + (currentLevelIndex + 1));
+        this._transitioning = false;
       });
     });
   }

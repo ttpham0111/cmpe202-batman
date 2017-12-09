@@ -1,5 +1,6 @@
 class Player extends Character {
-  static get SPRITE_KEY() { return 'sprite-player'; }
+  static get SPRITE_KEY_1() { return 'sprite-player-1'; }
+  static get SPRITE_KEY_2() { return 'sprite-player-2'; }
 
   static get EQUIP_LOCATIONS() {
     return {
@@ -12,31 +13,37 @@ class Player extends Character {
     };
   }
 
-  constructor(game, x, y, group, name) {
-    super(game, x, y, Player.SPRITE_KEY, group, name || 'Link', {
+  constructor(game, x, y, group, name, hasCap) {
+    super(game, x, y, (hasCap) ? Player.SPRITE_KEY_2 : Player.SPRITE_KEY_1, group, name || 'Link', {
       maxHealth: 12,
-      strength: 10,
+      strength: 1,
       speed: 100
     });
 
     game.physics.arcade.enable(this);
     this.body.collideWorldBounds = true;
+    this.body.bounce.set(1, 1);
 
     this.anchor.setTo(.5,.5);
 
     this._actions = {};
     this._equips = new Array(Object.keys(Player.EQUIP_LOCATIONS).length);
+    this._preventAnimationUpdate = false;
 
     this._addAnimations();
     this._addDefaultActions();
   }
 
+  get isAttacking() { return this._disabled; }
+
   stop() {
-    this.animations.stop();
+    if (this.isMoving) this.animations.stop();
     super.stop();
   }
 
   updateAnimation() {
+    if (this._preventAnimationUpdate) return;
+
     let action = 'idle';
     if (this.isMoving) action = 'walk';
 
@@ -44,8 +51,11 @@ class Player extends Character {
   }
 
   _addAnimations() {
-    this._setDirectionalFrames('link_idle', [3, 1, 3], undefined, true);
+    this._setDirectionalFrames('link_idle', [3, 1, 3], 1, true);
     this._setDirectionalFrames('link_walk', 10, undefined, true);
+
+    this._setDirectionalFrames('link_slash', 10, 50);
+    this._setFrames(['link_item', 'link_big_item'], 3);
   }
 
   _addDefaultActions() {
@@ -77,6 +87,36 @@ class Player extends Character {
     });
   }
 
+  obtainItem(item) {
+    this.stop();
+
+    let animation = 'link_item';
+    if (item instanceof Equip) {
+      animation = 'link_big_item';
+      this.equip(item);
+    }
+    this.animations.play(animation);
+  }
+
+  slash() {
+    if (this._disabled) return;
+    this._disabled = true;
+    this._preventAnimationUpdate = true;
+
+    this.stop();
+    const animation = this.animations.play('link_slash_' + Constants.DIRECTION_KEYS[this.facing]);
+    animation.onComplete.addOnce(() => {
+      this._preventAnimationUpdate = false;
+      this.updateAnimation();
+    });
+
+    setTimeout(() => {
+      this._disabled = false;
+    }, this.delay);
+
+    return animation;
+  }
+
   equip(equipment) {
     let location = equipment.location;
     const locations = Player.EQUIP_LOCATIONS;
@@ -87,11 +127,12 @@ class Player extends Character {
     this.unequip(location);
     equipment.equipTo(this);
     this._equips[location] = equipment;
-    this.addActions(equipment.actions);
   }
 
   unequip(location) {
-    this.removeActions(this._equips[location].actions);
-    this._equips[location] = null;
+    if (this._equips[location]) {
+      this._equips[location].unequip();
+      this._equips[location] = null;
+    }
   }
 }

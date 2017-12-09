@@ -1,0 +1,33 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="items_bomb_0.png" x="61" y="68" width="12" height="16"/>
+	<SubTexture name="items_bomb_1.png" x="61" y="51" width="12" height="15"/>
+	<SubTexture name="items_boomerang_0.png" x="61" y="104" width="9" height="16"/>
+	<SubTexture name="items_boomerang_1.png" x="61" y="86" width="10" height="16"/>
+	<SubTexture name="items_bottle.png" x="48" y="0" width="12" height="15"/>
+	<SubTexture name="items_bottle_blue.png" x="47" y="102" width="12" height="15"/>
+	<SubTexture name="items_bottle_blue_gem.png" x="47" y="85" width="12" height="15"/>
+	<SubTexture name="items_bottle_faiy_0.png" x="47" y="68" width="12" height="15"/>
+	<SubTexture name="items_bottle_faiy_1.png" x="47" y="51" width="12" height="15"/>
+	<SubTexture name="items_bottle_faiy_2.png" x="48" y="17" width="12" height="15"/>
+	<SubTexture name="items_bottle_green.png" x="34" y="17" width="12" height="15"/>
+	<SubTexture name="items_bottle_green_gem.png" x="34" y="0" width="12" height="15"/>
+	<SubTexture name="items_bottle_red.png" x="34" y="34" width="12" height="15"/>
+	<SubTexture name="items_bottle_red_gem.png" x="48" y="34" width="12" height="15"/>
+	<SubTexture name="items_bottle_white.png" x="33" y="100" width="12" height="15"/>
+	<SubTexture name="items_bow.png" x="18" y="51" width="14" height="14"/>
+	<SubTexture name="items_bow_1.png" x="0" y="0" width="17" height="17"/>
+	<SubTexture name="items_cape.png" x="18" y="35" width="14" height="14"/>
+	<SubTexture name="items_claws.png" x="33" y="67" width="12" height="15"/>
+	<SubTexture name="items_gust_jar.png" x="0" y="33" width="16" height="15"/>
+	<SubTexture name="items_lantern.png" x="17" y="84" width="14" height="16"/>
+	<SubTexture name="items_ocarina.png" x="0" y="19" width="16" height="12"/>
+	<SubTexture name="items_shield_0.png" x="33" y="84" width="12" height="14"/>
+	<SubTexture name="items_shield_1.png" x="18" y="19" width="14" height="14"/>
+	<SubTexture name="items_shoes.png" x="17" y="102" width="14" height="13"/>
+	<SubTexture name="items_sword_0.png" x="17" y="68" width="14" height="14"/>
+	<SubTexture name="items_sword_1.png" x="0" y="85" width="15" height="15"/>
+	<SubTexture name="items_sword_2.png" x="0" y="68" width="15" height="15"/>
+	<SubTexture name="items_sword_3.png" x="0" y="102" width="15" height="15"/>
+	<SubTexture name="items_sword_4.png" x="0" y="50" width="16" height="16"/>
+	<SubTexture name="items_wand.png" x="19" y="0" width="13" height="14"/>
+</TextureAtlas>

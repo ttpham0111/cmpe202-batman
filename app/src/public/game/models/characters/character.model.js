@@ -9,15 +9,20 @@ class Character extends Phaser.Sprite {
     this.maxHealth = stats.maxHealth;  // Phaser has this built in
     this._strength = stats.strength;
     this._speed = stats.speed;
+    this._disabled = false;
 
     this.setHealth(this.maxHealth);
+
+    this.body && this.body.maxVelocity.set(500, 500);
   }
 
   get isMoving() { return !this.body.velocity.equalsXY(0, 0); }
+  get isDisabled() { return this._disabled; }
 
   get name() { return this._name; }
   get strength () { return this._strength; }
-  get speed () { return this._speed; }
+  get speed() { return this._speed; }
+  get delay() { return 3e4 / this._speed; }
 
   // All directional frames are assumed to be <prefix>_<front|back|side>_<index>.png where index [0, numFrames)
   _setDirectionalFrames(prefix, numFrames, animationSpeed, loop) {
@@ -30,10 +35,11 @@ class Character extends Phaser.Sprite {
 
   // All frames are assumed to be <prefix>_<index>.png where index [0, numFrames)
   _setFrames(prefixes, numFrames, animationSpeed, loop) {
+    prefixes = (prefixes instanceof Array) ? prefixes : [prefixes];
     numFrames = numFrames || 0;
     animationSpeed = animationSpeed || 15;
     loop = loop || false;
-    const listOfFrames = Array.isArray(numFrames);
+    const listOfFrames = numFrames instanceof Array;
 
     prefixes.forEach((prefix, i) => {
       const frames = [];
@@ -73,6 +79,15 @@ class Character extends Phaser.Sprite {
     }
   }
 
+  damage(amount) {
+    super.damage(amount);
+
+    this._disabled = true;
+    setTimeout(() => {
+      this._disabled = false;
+    }, this.delay);
+  }
+
   reduceStrength(value, duration) {
     this._reduceStat('_strength', value, duration);
   }
@@ -87,6 +102,26 @@ class Character extends Phaser.Sprite {
 
   increaseSpeed(value, duration) {
     this._increaseStat('_speed', value, duration);
+  }
+
+  faceUp() {
+    this.facing = Phaser.ANGLE_UP;
+    this.updateAnimation();
+  }
+
+  faceDown() {
+    this.facing = Phaser.ANGLE_DOWN;
+    this.updateAnimation();
+  }
+
+  faceLeft() {
+    this.facing = Phaser.ANGLE_LEFT;
+    this.updateAnimation();
+  }
+
+  faceRight() {
+    this.facing = Phaser.ANGLE_RIGHT;
+    this.updateAnimation();
   }
 
   moveUp() {
