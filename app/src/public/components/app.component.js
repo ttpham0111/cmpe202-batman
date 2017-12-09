@@ -24,7 +24,7 @@ Vue.component('z-app', {
                     &nbsp;Tutorial
                   </b-form-checkbox>
                 
-                  <b-form-checkbox @change="toggleInput" class="text-light">
+                  <b-form-checkbox v-model="useKeyboard" class="text-light">
                     &nbsp;Keyboard
                   </b-form-checkbox>
                 </b-nav-form>
@@ -51,8 +51,15 @@ Vue.component('z-app', {
       levelText: '',
       gameStarted: false,
       currentLevel: '',
-      showTutorial: false
+      showTutorial: false,
+      useKeyboard: false
     };
+  },
+
+  watch: {
+    useKeyboard: function() {
+      this.toggleInput();
+    }
   },
 
   mounted: function() {
@@ -65,6 +72,12 @@ Vue.component('z-app', {
 
       const state = this.game.state.states[stateKey];
       this.levelText = state.editorText || '';
+
+      if (this.useKeyboard) {
+        setTimeout(() => {
+          this.toggleInput();
+        });
+      }
     });
 
     this.game = game;
